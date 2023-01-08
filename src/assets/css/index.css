@@ -11,4 +11,9 @@
   height: 100vh;
   background: #faf9f9;
   padding-bottom: 1em;
+}
+
+.navbar-dashboard {
+  background: #16abf8 !important;
+  font-family: "Poppins", sans-serif;
 }/*# sourceMappingURL=index.css.map */

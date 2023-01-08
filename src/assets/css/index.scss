@@ -2,7 +2,8 @@
 
 
 $font: 'Poppins', sans-serif;
-
+// variable content color
+$content-color:#16abf8;
 *{
     margin:0;
     padding:0;
@@ -16,4 +17,9 @@ $font: 'Poppins', sans-serif;
     height: 100vh;
     background: #faf9f9;
     padding-bottom: 1em;
+}
+// navbar dashboard
+.navbar-dashboard{
+    background: $content-color !important;
+    font-family: $font;
 }
