@@ -96,10 +96,10 @@
 .dashboard-new-item .activity-item .date-activity {
   display: flex;
   align-items: center;
+  color: #777777;
 }
 .dashboard-new-item .activity-item .date-activity span {
   flex: 1;
-  color: #777777;
 }
 
 @media screen and (max-width: 1000px) {

@@ -112,11 +112,12 @@ $content-color:#16abf8;
         .date-activity{
             display: flex;
             align-items: center;
+            color: #777777;
+            
             span{
                 flex: 1;
-                color: #777777;
             }
-          
+         
         }
     }
 }
