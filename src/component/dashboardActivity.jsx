@@ -13,6 +13,9 @@ const DashboardActivity = ()=>{
                     Tambah
                     </button>
             </header>
+
+            {/* activity item */}
+            
         </section>
     )
 }
