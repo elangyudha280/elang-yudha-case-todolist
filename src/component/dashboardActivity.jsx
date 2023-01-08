@@ -1,5 +1,7 @@
 
 
+// component dashboard new activity ||  item 
+import DashboardNewItem from "./dashboardActivity/DashboardNewItem"; 
 
 
 const DashboardActivity = ()=>{
@@ -15,7 +17,7 @@ const DashboardActivity = ()=>{
             </header>
 
             {/* activity item */}
-            
+            <DashboardNewItem/>
         </section>
     )
 }
