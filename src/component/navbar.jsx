@@ -4,9 +4,9 @@
 
 const Navbar = ()=>{
     return (
-        <nav className="navbar bg-transparent navbar-dashboard fw-bold py-4">
+        <nav className="navbar bg-transparent navbar-dashboard fw-bold ">
             <div className="container">
-                <a className="navbar-brand text-white" href="#">TODO LIST APP</a>
+                <h2 className="navbar-brand text-white" href="#">TODO LIST APP</h2>
             </div>
         </nav>
     )

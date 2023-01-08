@@ -11,13 +11,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 
 import './assets/css/index.css'
+// component dashboard activity
+import DashboardActivity from './component/dashboardActivity';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
      <BrowserRouter>
       <Routes>
         <Route path='/' element={<App />}>
-          <Route path='/' element={<p>dashboard activity</p>}/>
+          <Route path='/' element={<DashboardActivity/>}/>
           <Route path='detail/:id' element={<p>detal..</p>}/>
         </Route> 
         <Route path='*' element={<p>not found</p>}/>

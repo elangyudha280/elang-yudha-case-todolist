@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap');
-
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
 
 $font: 'Poppins', sans-serif;
 // variable content color
@@ -22,4 +22,53 @@ $content-color:#16abf8;
 .navbar-dashboard{
     background: $content-color !important;
     font-family: $font;
+    padding: 2em 0.4em;
+    h2{
+        margin:0;
+        font-size: 1.5em;
+    }
+}
+
+// dashboaard activity
+.dashboard-activity{
+    position: relative;
+    border: 1px solid red;
+    margin-top: 2.5em;
+
+
+
+} 
+
+// header activity
+.header-activity{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    border: 1px solid cyan;
+    font-family: $font;
+
+    .activity-title{
+        flex: 1;
+        display: flex;
+        font-weight: 600;
+        align-items: center;
+    }
+
+    // button add activity
+    .btn-activity-add-button{
+        width: 140px;
+        padding: 0.5em ;
+        height: 100%;
+        display: flex;
+        gap: 0.3em;
+        border-radius: 2em;
+        justify-content: center;
+        align-items: center;
+        background-color: $content-color;
+        color: #fff;
+        i{
+            font-size: 1.3em;
+        }
+    }
 }
