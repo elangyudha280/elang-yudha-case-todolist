@@ -101,6 +101,16 @@
 .dashboard-new-item .activity-item .date-activity span {
   flex: 1;
 }
+.dashboard-new-item .activity-item .date-activity .activity-item-delete-button {
+  border: none;
+  outline: none;
+  padding: 0.1em 0.2em;
+}
+.dashboard-new-item .activity-item .date-activity i {
+  font-size: 1.1em;
+  color: #777777;
+  font-weight: 600;
+}
 
 @media screen and (max-width: 1000px) {
   .dashboard-new-item {
