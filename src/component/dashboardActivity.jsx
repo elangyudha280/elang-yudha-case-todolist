@@ -3,6 +3,9 @@
 // component dashboard new activity ||  item 
 import DashboardNewItem from "./dashboardActivity/DashboardNewItem"; 
 
+// import activity empty state
+import ActivityEmptyState from "./dashboardActivity/ActivityEmptyState";
+
 
 const DashboardActivity = ()=>{
     return (
@@ -17,7 +20,10 @@ const DashboardActivity = ()=>{
             </header>
 
             {/* activity item */}
-            <DashboardNewItem/>
+            {/* <DashboardNewItem/> */}
+
+            {/* empty activity */}
+            <ActivityEmptyState/>
         </section>
     )
 }
