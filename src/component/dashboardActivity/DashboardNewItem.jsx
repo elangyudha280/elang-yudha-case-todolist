@@ -30,9 +30,7 @@ const DashboardNewItem = ()=>{
 
     let {dataApiActivity} = useContext(contextDataActivity)
 
-    useEffect(()=>{
-        console.log(dataApiActivity)
-    },[])
+   
 
     return (
         <section className="dashboard-new-item" data-cy="dashboard-new-item">
