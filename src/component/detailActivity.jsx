@@ -1,36 +1,66 @@
 import { useEffect,useState } from "react";
 
+import { useParams,useNavigate } from "react-router-dom";
 
+import { contextDetailActivity } from "../context/ContextDetailActivity";
+
+// component header detail activity
+import HeaderDetailActivity from "./detailActivity/headerDetailActivity";
+
+// component loading
+import Loading from "./loading/loading";
 
 
 const DetailActivity = () =>{
+
+    // data parameter url
+    let {id} = useParams()
+    let notfoundNavigate = useNavigate()
+
+    // state untuk menyimpan nila data detail activity
+    let [detailActivity,setDetailActivity] = useState([])
+
+    // state check loading
+    let [checkLoading,setCheckLoading] = useState(true)
+    
+
+    // data context untuk digunakan di component lain
+    let detailContext = {
+        detailActivity,
+        setDetailActivity
+    }
+
+    // fungsi untuk get data detail activity
+    useEffect(()=>{
+        fetch(`https://todo.api.devcode.gethired.id/activity-groups/${id}`).then(Response=>{
+            if(!Response.ok){
+                throw new Error('DATA ACTIVITY TIDAK BERHASIL DI DAPATKAN')
+            }
+            return Response.json()
+        })
+        .then(result=>{
+            setDetailActivity(result)
+        })
+        .catch(err =>{
+            notfoundNavigate('/NotFound')
+        })
+        .finally(()=>{setCheckLoading(false)})
+    },[])
+
+    
+    
     return (
-        <section className="detail-activity container mx-auto">
-            {/* header detail activity */}
-            <header className="header-detail-activity" data-cy="header-detail-activity">
-                <a href="/" className="todo-back-button" data-cy="todo-back-button">
-                    <i className="bi bi-chevron-left"></i>
-                </a>
-                <form action="#">
-                    <div className="container-edit-title" data-cy="container-edit-title">
-                        {/* <input type="text" className="input-edit-title" data-cy="input-edit-title" defaultValue='new Activity' autoFocus/> */}
-                        <h1 className="todo-title" data-cy="todo-title">new Activity</h1>
-                        <button className="todo-title-edit-button" data-cy="todo-title-edit-button">
-                            <i className="bi bi-pencil"></i>
-                        </button>
-                    </div>
-                </form>
-                <div className="button-action">
-                    <button className="todo-sort-button" data-cy="todo-sort-button">
-                    <i className="bi bi-funnel"></i>
-                    </button>
-                    <button className="todo-add-button" data-cy="todo-add-button">
-                            <i className="bi bi-plus-lg"></i>
-                            Tambah
-                    </button>
-                </div>
-            </header>
-        </section>
+        <contextDetailActivity.Provider value={detailContext}>
+            <section className="detail-activity container mx-auto">
+                {
+                    (checkLoading) ? <Loading/>
+                    :
+                    (
+                        <HeaderDetailActivity/>
+                    )
+                }
+            </section>
+        </contextDetailActivity.Provider>
     )
 }
 
