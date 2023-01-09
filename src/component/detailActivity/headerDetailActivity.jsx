@@ -1,6 +1,6 @@
 
 import { useEffect,useState,useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import { contextDetailActivity } from "../../context/ContextDetailActivity";
 
 
@@ -58,9 +58,9 @@ const HeaderDetailActivity = ()=>{
 
     return (
         <header className="header-detail-activity" data-cy="header-detail-activity">
-            <a href="/" className="todo-back-button" data-cy="todo-back-button">
+            <Link to="/" className="todo-back-button" data-cy="todo-back-button">
                 <i className="bi bi-chevron-left"></i>
-            </a>
+            </Link>
             <form action="#" onSubmit={modeEdit}>
                 <div className="container-edit-title" data-cy="container-edit-title">
                     {
