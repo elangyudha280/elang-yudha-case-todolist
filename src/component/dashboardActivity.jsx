@@ -24,10 +24,27 @@ const DashboardActivity = ()=>{
     // state untuk apakah sedang login
     let [checkLoading,setCheckLoading] = useState(true)
 
-    // data untk di jadikan context supaya bisa digunakan oleh component lain
+    // state untuk check apakah sedang dalam mode delete
+    let [modeDelete,setModeDelete] = useState(false)
+
+    // state untuk menyimpan data check apakah berhasil menghapus data activity
+    let[checkDeleteActivity,setCheckDeleteActivity] = useState(false);
+
+    // state untuk menyimpan dataset id dan title dari button delete activity
+    let [datasetModalActivity,setDatasetModalActivity] = useState()
+
+    // data state untuk di jadikan context supaya bisa digunakan oleh component lain
     let contextActivity = {
         dataApiActivity,
-        setDataApiActivity
+        setDataApiActivity,
+        updateActivity,
+        setUpdateActivity,
+        modeDelete,
+        setModeDelete,
+        datasetModalActivity,
+        setDatasetModalActivity,
+        checkDeleteActivity,
+        setCheckDeleteActivity
     }
 
     // fungsi untuk get data api activity
@@ -42,7 +59,7 @@ const DashboardActivity = ()=>{
             setDataApiActivity(result)
         })
         .catch(err => console.log(err))
-        .then(()=>{setCheckLoading(false)})
+        .finally(()=>{setCheckLoading(false)})
     },[updateActivity])
 
 
@@ -108,7 +125,9 @@ const DashboardActivity = ()=>{
             </section>
 
             {/* component modal delete activity */}
-            {/* <DeleteActivity/> */}
+            {
+                (modeDelete) && <DeleteActivity/>
+            }
         </contextDataActivity.Provider>
     )
 }
