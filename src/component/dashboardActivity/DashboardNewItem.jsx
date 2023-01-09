@@ -8,6 +8,8 @@ const ItemActivity =({id,title,date})=>{
         // parsing date
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         let dateTostring = new Date(date).toLocaleDateString('id',options);
+
+        
     return(
         <>
             <div className="activity-item" data-cy="activity-item">
@@ -30,7 +32,6 @@ const DashboardNewItem = ()=>{
 
     let {dataApiActivity} = useContext(contextDataActivity)
 
-   
 
     return (
         <section className="dashboard-new-item" data-cy="dashboard-new-item">

@@ -9,6 +9,8 @@ import DashboardNewItem from "./dashboardActivity/DashboardNewItem";
 import ActivityEmptyState from "./dashboardActivity/ActivityEmptyState";
 // component animate loading
 import Loading from "./loading/loading";
+// modal delete activity
+import DeleteActivity from "./dashboardActivity/modalActivity/DeleteActivity";
 
 
 const DashboardActivity = ()=>{
@@ -104,6 +106,9 @@ const DashboardActivity = ()=>{
                 }
              
             </section>
+
+            {/* component modal delete activity */}
+            {/* <DeleteActivity/> */}
         </contextDataActivity.Provider>
     )
 }
