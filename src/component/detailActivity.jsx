@@ -32,6 +32,7 @@ const DetailActivity = () =>{
 
     // fungsi untuk get data detail activity
     useEffect(()=>{
+        document.title = 'To Do List - Detail'
         fetch(`https://todo.api.devcode.gethired.id/activity-groups/${id}`).then(Response=>{
             if(!Response.ok){
                 throw new Error('DATA ACTIVITY TIDAK BERHASIL DI DAPATKAN')
