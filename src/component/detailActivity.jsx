@@ -7,6 +7,9 @@ import { contextDetailActivity } from "../context/ContextDetailActivity";
 // component header detail activity
 import HeaderDetailActivity from "./detailActivity/headerDetailActivity";
 
+// component empty state todo
+import TodoEmptyState from "./detailActivity/TodoEmptyState";
+
 // component loading
 import Loading from "./loading/loading";
 
@@ -57,7 +60,10 @@ const DetailActivity = () =>{
                     (checkLoading) ? <Loading/>
                     :
                     (
+                        <>
                         <HeaderDetailActivity/>
+                        <TodoEmptyState/>
+                        </>
                     )
                 }
             </section>

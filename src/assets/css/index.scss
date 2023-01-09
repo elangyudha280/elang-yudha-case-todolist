@@ -291,6 +291,9 @@ $bg-color:#F0F0F0;
         .todo-title{
             display: flex;
             align-items: center;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;            
             font-size: 2em;
             font-weight: bold;
             padding: 0;
@@ -345,6 +348,21 @@ $bg-color:#F0F0F0;
     }
    }
 
+}
+
+// todo-empty-state
+.todo-empty-state{
+    position: relative;
+    width: 100%;
+    margin-top: 1.5em;
+    cursor:default;
+    border: none;
+    img{
+        object-fit: contain;
+        object-position: center;
+        width: 100%;
+        height: 400px;
+    }
 }
 
 
@@ -437,6 +455,11 @@ $bg-color:#F0F0F0;
     
    
 } 
+
+// component empty todo
+.todo-empty-state{
+    margin-top: 6em;
+}
 }
 
 // media < 768px or for tablet device 

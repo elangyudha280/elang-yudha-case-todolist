@@ -115,7 +115,7 @@ const DashboardActivity = ()=>{
                     (checkLoading) ? <Loading/>
                     :
                    // check apakah data activity nya tidak ada atau kosong
-                   (dataApiActivity === 0 || dataApiActivity === undefined) 
+                   (dataApiActivity.data.length === 0 || dataApiActivity === undefined) 
                    ?
                    <ActivityEmptyState eventAddActivity={addActivity}/>
                    :
