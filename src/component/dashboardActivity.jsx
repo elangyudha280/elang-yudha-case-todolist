@@ -17,7 +17,7 @@ const DashboardActivity = ()=>{
     let [dataApiActivity,setDataApiActivity] = useState()
 
     // state  untuk update || check apakah activitynya ada perubahan
-    let {updateActivity,setUpdateActivity} = useState(false)
+    let [updateActivity,setUpdateActivity] = useState(false)
 
     // state untuk apakah sedang login
     let [checkLoading,setCheckLoading] = useState(true)
@@ -44,13 +44,48 @@ const DashboardActivity = ()=>{
     },[updateActivity])
 
 
+    // event add data activity
+    const addActivity = ()=>{
+     // set animate loading
+     setCheckLoading(true)
+     // set data raw for activity
+     let raw = {
+             title: 'new Activity',
+             email:'elangyudharakasiwi@gmail.com'
+         };
+
+     // set request option fetch
+     let requestOptions = {
+     method: 'POST',
+     headers:{
+         'Content-Type': 'application/json'
+     },
+     body: JSON.stringify(raw),
+     redirect: 'follow'
+     };
+
+     // fetch untuk post data
+     fetch("https://todo.api.devcode.gethired.id/activity-groups?email=elangyudharakasiwi@gmail.com",requestOptions)
+     .then(response => response.status)
+     .then(result => {
+         return ''
+     })
+     .catch(error => console.log('error', error))
+     .finally(()=>{  
+         // set update
+         (!updateActivity) ? setUpdateActivity(true) : setUpdateActivity(false) 
+         setCheckLoading(false) 
+     })
+
+    }
+
     return (
         <contextDataActivity.Provider value={contextActivity}> 
             <section className="dashboard-activity container mx-auto">
                 {/* dashboard activity header */}
                 <header className="header-activity">
                     <h1 className="activity-title" data-cy="activity-title">Activity</h1>
-                    <button className="btn btn-activity-add-button" data-cy="activity-add-button">
+                    <button className="btn btn-activity-add-button" onClick={addActivity} data-cy="activity-add-button">
                     <i className="bi bi-plus-lg"></i>
                         Tambah
                         </button>
@@ -63,7 +98,7 @@ const DashboardActivity = ()=>{
                    // check apakah data activity nya tidak ada atau kosong
                    (dataApiActivity === 0 || dataApiActivity === undefined) 
                    ?
-                   <ActivityEmptyState/>
+                   <ActivityEmptyState eventAddActivity={addActivity}/>
                    :
                    <DashboardNewItem/> 
                 }

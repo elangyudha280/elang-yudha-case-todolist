@@ -4,10 +4,10 @@ import imgEmptyActivity from '../../assets/images/activity-empty-state.png'
 
 
 
-const ActivityEmptyState = ()=>{
+const ActivityEmptyState = ({eventAddActivity})=>{
     return(
         <>
-        <button className="activity-empty-state" data-cy="activity-empty-state">
+        <button className="activity-empty-state" onClick={eventAddActivity} data-cy="activity-empty-state">
             <img src={imgEmptyActivity} alt="No activity" />
         </button>
         </>
