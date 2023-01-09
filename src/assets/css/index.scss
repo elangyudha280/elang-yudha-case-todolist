@@ -83,11 +83,13 @@ $bg-color:#F0F0F0;
         position: relative;
         width: 100%;
         margin-top: 1.5em;
-    border: none;
+        cursor:default;
+        border: none;
         img{
-            object-fit: cover;
+            object-fit: contain;
             object-position: center;
             width: 100%;
+            height: 400px;
         }
 }
 
