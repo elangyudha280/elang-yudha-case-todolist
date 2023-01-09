@@ -108,7 +108,7 @@ const DashboardActivity = ()=>{
             </section>
 
             {/* component modal delete activity */}
-            {/* <DeleteActivity/> */}
+            <DeleteActivity/>
         </contextDataActivity.Provider>
     )
 }

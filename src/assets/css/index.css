@@ -148,6 +148,7 @@
   background: #fff;
   padding: 1.5em 2.5em;
   border-radius: 0.8em;
+  box-shadow: 0px 4px 5px -3px rgba(0, 0, 0, 0.75);
 }
 .modal-delete-container-activity .modal-delete .modal-delete-icon {
   font-size: 5em;
@@ -182,6 +183,24 @@
 }
 .modal-delete-container-activity .modal-delete .modal-footer .modal-delete-confirm-button {
   color: #fff;
+}
+.modal-delete-container-activity .modal-information {
+  width: 500px;
+  display: flex;
+  background: #fff;
+  border-radius: 0.7em;
+  padding: 0.5em 1em;
+  align-items: center;
+  gap: 0.8em;
+  box-shadow: 0px 4px 5px -3px rgba(0, 0, 0, 0.75);
+}
+.modal-delete-container-activity .modal-information i {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.modal-delete-container-activity .modal-information p {
+  padding: 0;
+  margin: 0;
 }
 
 @-webkit-keyframes cascade {
@@ -256,6 +275,9 @@
   .modal-delete-container-activity .modal-delete {
     width: 400px;
   }
+  .modal-delete-container-activity .modal-information {
+    width: 400px;
+  }
 }
 @media screen and (max-width: 500px) {
   .dashboard-new-item {
@@ -264,5 +286,8 @@
   .modal-delete-container-activity .modal-delete {
     width: 100%;
     padding: 1.5em 1em;
+  }
+  .modal-delete-container-activity .modal-information {
+    width: 100%;
   }
 }/*# sourceMappingURL=index.css.map */
