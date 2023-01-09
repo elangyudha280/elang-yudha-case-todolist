@@ -43,6 +43,8 @@
 .header-activity .activity-title {
   flex: 1;
   display: flex;
+  font-size: 1.8em;
+  height: 100%;
   font-weight: 600;
   align-items: center;
 }
@@ -202,92 +204,6 @@
   margin: 0;
 }
 
-.detail-activity {
-  position: relative;
-  margin-top: 2.5em;
-}
-
-.header-detail-activity {
-  position: relative;
-  width: 100%;
-  height: 55px;
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  grid-auto-rows: auto;
-  gap: 0.7em;
-}
-.header-detail-activity .todo-back-button {
-  width: 50px;
-  display: grid;
-  place-items: center;
-  font-size: 2em;
-  text-decoration: none;
-  font-weight: bold;
-  color: #000;
-  height: 100%;
-}
-.header-detail-activity .container-edit-title {
-  height: 100%;
-  display: flex;
-}
-.header-detail-activity .container-edit-title .input-edit-title {
-  border: none;
-  background: transparent;
-  border-bottom: 1px solid black;
-  height: 100%;
-  outline: none;
-  font-size: 2em;
-  flex: 1;
-  font-weight: bold;
-}
-.header-detail-activity .container-edit-title .todo-title {
-  display: flex;
-  align-items: center;
-  font-size: 2em;
-  font-weight: bold;
-  padding: 0;
-  margin: 0;
-}
-.header-detail-activity .container-edit-title .todo-title-edit-button {
-  width: 50px;
-  padding: 0;
-  margin: 0;
-  font-size: 1.4em;
-  border: none;
-  font-weight: bold;
-}
-.header-detail-activity .button-action {
-  display: flex;
-  gap: 0.5em;
-  justify-content: end;
-}
-.header-detail-activity .button-action .todo-sort-button {
-  border-radius: 50%;
-  width: 55px;
-  font-size: 1.5em;
-  border: 1px solid rgb(155, 153, 153);
-  color: rgb(155, 153, 153);
-}
-.header-detail-activity .button-action .todo-add-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5em;
-  background: #16abf8;
-  color: #fff;
-  font-weight: 600;
-  border: none;
-  padding: 0 1.5em;
-  border-radius: 2em;
-}
-.header-detail-activity .button-action .todo-add-button i {
-  font-size: 1.3em;
-  font-weight: bold;
-}
-.header-detail-activity .button-action .todo-add-button:hover {
-  opacity: 0.6;
-}
-
 @-webkit-keyframes cascade {
   0% {
     opacity: 0;
@@ -352,30 +268,12 @@
   .dashboard-new-item {
     grid-template-columns: repeat(3, 1fr);
   }
-  .header-detail-activity {
-    grid-template-columns: auto 1fr;
-    grid-auto-rows: auto;
-    gap: 0.7em;
-  }
-  .header-detail-activity .container-edit-title .input-edit-title {
-    flex: auto;
-    width: 100%;
-  }
-  .header-detail-activity .container-edit-title .todo-title {
-    flex: 1;
-  }
-  .header-detail-activity .container-edit-title .todo-title-edit-button {
-    width: 40px;
-  }
-  .header-detail-activity .button-action {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    height: 50px;
-  }
 }
 @media screen and (max-width: 768px) {
+  .header-activity .activity-title {
+    font-size: 1.3em;
+    height: 100%;
+  }
   .dashboard-new-item {
     grid-template-columns: repeat(2, 1fr);
   }

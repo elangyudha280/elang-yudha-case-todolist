@@ -52,6 +52,8 @@ $bg-color:#F0F0F0;
     .activity-title{
         flex: 1;
         display: flex;
+        font-size: 1.8em;
+        height: 100%;
         font-weight: 600;
         align-items: center;
     }
@@ -239,113 +241,6 @@ $bg-color:#F0F0F0;
 }
 
 
-
-// CODE UNTUK HALAMAN DETAIL ACTIVITY
-.detail-activity{
-    position: relative;
-    margin-top: 2.5em;
-}
-
-// header detail activitty
-.header-detail-activity{
-    position: relative;
-    width: 100%;
-    height: 55px;
-    display: grid;
-    grid-template-columns: auto 1fr auto auto;
-    grid-auto-rows: auto;
-    gap: 0.7em;
-
-    // detail to home
-    .todo-back-button{
-        width: 50px;
-        display: grid;
-        place-items: center;
-        font-size: 2em;
-        text-decoration: none;
-        font-weight: bold;
-        color: #000;
-        height: 100%;
-    }
-
-    // container edit title
-    .container-edit-title{
-        height: 100%;
-        display: flex;
-
-        // input-edit-title
-        .input-edit-title{
-            border: none;
-            background: transparent;
-            border-bottom: 1px solid black;
-            height: 100%;
-            outline: none;
-            font-size: 2em;
-            flex: 1;
-            font-weight: bold;
-        }
-        
-        // title todo
-        .todo-title{
-            display: flex;
-            align-items: center;
-            font-size: 2em;
-            font-weight: bold;
-            padding: 0;
-            margin: 0;
-        }
-
-        // todo-title-edit-button
-        .todo-title-edit-button{
-            width: 50px;
-            padding: 0;
-            margin: 0;
-            font-size: 1.4em;
-            border: none;
-            font-weight: bold;
-        }
-        
-    }
-
-   // button action
-   .button-action{
-    display: flex;
-    gap: 0.5em;
-    justify-content: end;
-     // todo-sort-button
-     .todo-sort-button{
-        border-radius: 50%;
-        width: 55px;
-        font-size: 1.5em;
-        border: 1px solid rgb(155, 153, 153);
-        color: rgb(155, 153, 153);
-    }
-
-    // todo-add-button
-    .todo-add-button{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5em;
-        background: $content-color;
-        color: #fff;
-        font-weight: 600;
-        border: none;
-        padding: 0 1.5em;
-        border-radius: 2em;
-        i{
-            font-size: 1.3em;
-            font-weight: bold;
-        }
-    }
-    .todo-add-button:hover{
-        opacity: 0.6;
-    }
-   }
-
-}
-
-
 // code css  animate loading 
 @-webkit-keyframes cascade {
     0% {
@@ -404,41 +299,19 @@ $bg-color:#F0F0F0;
         .dashboard-new-item{
             grid-template-columns: repeat(3,1fr);
         }
-
-    // // header detail activitty
-.header-detail-activity{
-    grid-template-columns: auto 1fr;
-    grid-auto-rows: auto;
-    gap: 0.7em;
-    
-    .container-edit-title{
-            // input-edit-title
-            .input-edit-title{
-                flex: auto;
-                width: 100%;
-            }
-            .todo-title{
-                flex: 1;
-            }
-            .todo-title-edit-button{
-                width: 40px;
-            }
-    }
-
-    .button-action{
-        grid-column-start: 2;
-        grid-column-end: 3;
-        grid-row-start: 2;
-        grid-row-end: 3;
-        height: 50px;
-    }
-    
-   
-} 
 }
 
 // media < 768px or for tablet device 
 @media screen and (max-width:768px){
+
+    // header activity
+    .header-activity{
+        .activity-title{
+            font-size: 1.3em;
+            height: 100%;
+        }
+    }
+
     // dasboard new activity
         .dashboard-new-item{
             grid-template-columns: repeat(2,1fr);

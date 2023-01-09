@@ -103,7 +103,7 @@ const DashboardActivity = ()=>{
             <section className="dashboard-activity container mx-auto">
                 {/* dashboard activity header */}
                 <header className="header-activity" data-cy='header-title'>
-                    <h1 className="activity-title" data-cy="activity-title">Activity</h1>
+                    <h1 className="activity-title" data-cy="activity-title">TO DO LIST APP Activity</h1>
                     <button className="btn btn-activity-add-button" onClick={addActivity} data-cy="activity-add-button">
                     <i className="bi bi-plus-lg"></i>
                         Tambah
