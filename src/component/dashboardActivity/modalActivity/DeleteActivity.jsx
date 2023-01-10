@@ -47,8 +47,8 @@ const ModalDelete = ()=>{
             <button className="modal-delete-confirm-button btn btn-danger" onClick={deleteActivity} data-delete-modal-id={deleteActivityId} data-cy="modal-delete-confirm-button">
                 Hapus
             </button>
+            </div>
         </div>
-    </div>
     )
 }
 

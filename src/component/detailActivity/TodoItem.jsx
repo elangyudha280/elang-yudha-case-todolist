@@ -2,7 +2,21 @@ import { useEffect,useState,useContext } from "react";
 import { contextDetailActivity } from "../../context/ContextDetailActivity";
 
 
-let Item = ({id,title})=>{
+let Item = ({id,title,priority})=>{
+    // use context detail activity
+    let {checkdDeleteTodo,setCheckDeleteTodo,setDatasetModalDelete} = useContext(contextDetailActivity)
+    
+    // event set dataset id dan title modal delet
+    let setDataset = (e)=>{
+        let data = {
+            deleteId:e.target.dataset.deleteId,
+            deleteTitle:e.target.dataset.deleteTitle
+        }
+        setDatasetModalDelete(data)
+        setCheckDeleteTodo(true)
+    }
+    
+    
     return (
         <div className="todo-item" data-cy="todo-item">
                 <input type="checkbox" className="todo-item-checkbox" data-cy="todo-item-checkbox" data-checkbox-todo={id} />
@@ -12,7 +26,7 @@ let Item = ({id,title})=>{
                     <i className="bi bi-pencil"></i>
                 </button>
                 <div className="todo-item-delete-button" data-cy="todo-item-delete-button">
-                <i className="bi bi-trash3"></i>
+                <i className="bi bi-trash3" data-delete-id={id} onClick={setDataset} data-delete-title={title}></i>
                 </div>
         </div>
     )
@@ -23,10 +37,6 @@ const TodoItem = () =>{
     // use context detail activity
 
     let {todoItem,setTodoItem} = useContext(contextDetailActivity);
-
-    useEffect(()=>{
-        console.log(todoItem)
-    },[todoItem])
 
     return (
         <section className="todolist-container">

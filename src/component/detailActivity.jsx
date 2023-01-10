@@ -7,6 +7,9 @@ import { contextDetailActivity } from "../context/ContextDetailActivity";
 // component header detail activity
 import HeaderDetailActivity from "./detailActivity/headerDetailActivity";
 
+// modal delete list item || todo
+import DeleteListItem from "./detailActivity/modalDetailActivity/DeleteListItem";
+
 // component empty state todo
 import TodoEmptyState from "./detailActivity/TodoEmptyState";
 
@@ -30,14 +33,34 @@ const DetailActivity = () =>{
     let [checkLoading,setCheckLoading] = useState(true)
 
     // state untuk menyimpan data todolist item
-    let [todoItem,setTodoItem] = useState([])    
+    let [todoItem,setTodoItem] = useState([])   
+
+    // state untuk mengecek update todo
+    let [checkUpdateTodo,setCheckUpdateTodo] =useState(false)
+    
+    // state untuk mengecek apakah sedang dalam mode delete todo
+    let [checkDeleteTodo,setCheckDeleteTodo] = useState(false)
+
+    // state untuk data dataset id dan title modal delete
+    let [datasetModalDelete,setDatasetModalDelete]= useState()
+
+       // data state untuk mengecek apakah success menghapus data
+       let [successDelete,setSuccessDelete] = useState(false)
 
     // data context untuk digunakan di component lain
     let detailContext = {
         detailActivity,
         setDetailActivity,
         todoItem,
-        setTodoItem
+        setTodoItem,
+        checkUpdateTodo,
+        setCheckUpdateTodo,
+        checkDeleteTodo,
+        setCheckDeleteTodo,
+        datasetModalDelete,
+        setDatasetModalDelete,
+        successDelete,
+        setSuccessDelete
     }
 
     // fungsi untuk get data detail activity
@@ -73,8 +96,8 @@ const DetailActivity = () =>{
         .catch(err =>{
             errorNavigate('/error')
         })
-        .finally(()=>{setCheckLoading(false)})
-    },[])
+        .finally(()=>{''})
+    },[checkUpdateTodo])
 
     
     
@@ -95,6 +118,9 @@ const DetailActivity = () =>{
                     )
                 }
             </section>
+            {
+                (checkDeleteTodo) && <DeleteListItem/> 
+            }
         </contextDetailActivity.Provider>
     )
 }

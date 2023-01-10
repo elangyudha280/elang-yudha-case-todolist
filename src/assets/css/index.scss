@@ -375,6 +375,7 @@ $bg-color:#F0F0F0;
     margin-top: 2.5em;
     // border: 1px solid red;
     display: flex;
+    gap: 1em;
     flex-direction: column;
     
     // todo item
@@ -407,12 +408,13 @@ $bg-color:#F0F0F0;
             font-family: $font;
             padding: 0;
             margin: 0;
-            font-size: 1.1em;
+            font-size: 1em;
         }
 
         // todo-item-edit-button
         .todo-item-edit-button{
             border: none;
+            padding: 0;
             background: transparent;
             font-size: 1.2em;
             i{
@@ -434,6 +436,9 @@ $bg-color:#F0F0F0;
         }
     }
 }
+
+
+
 
 // 
 
