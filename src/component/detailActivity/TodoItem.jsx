@@ -4,7 +4,7 @@ import { contextDetailActivity } from "../../context/ContextDetailActivity";
 
 let Item = ({id,title,priority})=>{
     // use context detail activity
-    let {checkdDeleteTodo,setCheckDeleteTodo,setDatasetModalDelete} = useContext(contextDetailActivity)
+    let {setCheckDeleteTodo,setDatasetModalDelete} = useContext(contextDetailActivity)
     
     // event set dataset id dan title modal delet
     let setDataset = (e)=>{

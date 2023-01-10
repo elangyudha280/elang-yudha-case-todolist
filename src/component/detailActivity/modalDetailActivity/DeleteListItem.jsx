@@ -50,7 +50,7 @@ const AlertActivity = ()=>{
 
 const DeleteListItem = ()=>{
     // context check delete todo
-    let {checkdDeleteTodo,setCheckDeleteTodo,successDelete,setSuccessDelete} = useContext(contextDetailActivity) 
+    let {setCheckDeleteTodo,successDelete,setSuccessDelete} = useContext(contextDetailActivity) 
 
 
 
