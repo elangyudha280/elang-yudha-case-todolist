@@ -26,7 +26,7 @@ let Item = ({id,title,priority})=>{
                     <i className="bi bi-pencil"></i>
                 </button>
                 <div className="todo-item-delete-button" data-cy="todo-item-delete-button">
-                <i className="bi bi-trash3" data-delete-id={id} onClick={setDataset} data-delete-title={title}></i>
+                 <i className="bi bi-trash3" data-delete-id={id} onClick={setDataset} data-delete-title={title}></i>
                 </div>
         </div>
     )
@@ -36,7 +36,7 @@ let Item = ({id,title,priority})=>{
 const TodoItem = () =>{
     // use context detail activity
 
-    let {todoItem,setTodoItem} = useContext(contextDetailActivity);
+    let {todoItem} = useContext(contextDetailActivity);
 
     return (
         <section className="todolist-container">
