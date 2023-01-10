@@ -308,6 +308,9 @@ $bg-color:#F0F0F0;
             font-size: 1.4em;
             border: none;
             font-weight: bold;
+            i{
+                color: #777777;
+            }
         }
         
     }
@@ -365,6 +368,74 @@ $bg-color:#F0F0F0;
     }
 }
 
+// todolist container
+.todolist-container{
+    position: relative;
+    width: 100%;
+    margin-top: 2.5em;
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    
+    // todo item
+    .todo-item{
+        position: relative;
+        width: 100%;
+        padding: 1.5em ;
+        border-radius: 0.9em;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        gap: 0.9em;
+
+        // todo checkbox
+        .todo-item-checkbox{
+            width: 20px;
+            height: 20px;
+        }
+        
+        // todo icon priority
+        .todo-item-priority-indicator{
+            width: 9px;
+            height: 9px;
+            background-color: rebeccapurple;
+            border-radius: 50%;
+        }
+
+        // todo-item-title
+        .todo-item-title{
+            font-family: $font;
+            padding: 0;
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        // todo-item-edit-button
+        .todo-item-edit-button{
+            border: none;
+            background: transparent;
+            font-size: 1.2em;
+            i{
+                color: #777777;
+            }
+        }
+
+        // todo-item-delete-button
+        .todo-item-delete-button{
+            flex: 1;
+            display: flex;
+            justify-content: end;
+
+            i{
+                font-size: 1.2em;
+                color: #777777;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+// 
 
 // code css  animate loading 
 @-webkit-keyframes cascade {
@@ -426,40 +497,50 @@ $bg-color:#F0F0F0;
         }
 
     // // header detail activitty
-.header-detail-activity{
-    grid-template-columns: auto 1fr;
-    grid-auto-rows: auto;
-    gap: 0.7em;
+    .header-detail-activity{
+        grid-template-columns: auto 1fr;
+        grid-auto-rows: auto;
+        gap: 0.7em;
+        
+        .container-edit-title{
+                // input-edit-title
+                .input-edit-title{
+                    flex: auto;
+                    width: 100%;
+                }
+                .todo-title{
+                    flex: 1;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+                .todo-title-edit-button{
+                    width: 40px;
+                }
+        }
+
+        .button-action{
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 3;
+            height: 50px;
+        }
+        
     
-    .container-edit-title{
-            // input-edit-title
-            .input-edit-title{
-                flex: auto;
-                width: 100%;
-            }
-            .todo-title{
-                flex: 1;
-            }
-            .todo-title-edit-button{
-                width: 40px;
-            }
+    } 
+
+    // component empty todo
+    .todo-empty-state{
+        margin-top: 6em;
     }
 
-    .button-action{
-        grid-column-start: 2;
-        grid-column-end: 3;
-        grid-row-start: 2;
-        grid-row-end: 3;
-        height: 50px;
-    }
-    
-   
-} 
-
-// component empty todo
-.todo-empty-state{
-    margin-top: 6em;
-}
+    // todo item
+    .todolist-container{
+        position: relative;
+        width: 100%;
+        margin-top: 6em;
+    }    
 }
 
 // media < 768px or for tablet device 

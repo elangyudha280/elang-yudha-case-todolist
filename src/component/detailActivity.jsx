@@ -10,6 +10,9 @@ import HeaderDetailActivity from "./detailActivity/headerDetailActivity";
 // component empty state todo
 import TodoEmptyState from "./detailActivity/TodoEmptyState";
 
+// component todo item
+import TodoItem from "./detailActivity/TodoItem";
+
 // component loading
 import Loading from "./loading/loading";
 
@@ -62,7 +65,8 @@ const DetailActivity = () =>{
                     (
                         <>
                         <HeaderDetailActivity/>
-                        <TodoEmptyState/>
+                        {/* <TodoEmptyState/> */}
+                        <TodoItem/>
                         </>
                     )
                 }
