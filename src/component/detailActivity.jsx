@@ -9,6 +9,7 @@ import HeaderDetailActivity from "./detailActivity/headerDetailActivity";
 
 // modal delete list item || todo
 import DeleteListItem from "./detailActivity/modalDetailActivity/DeleteListItem";
+import TambahListItem from "./detailActivity/modalDetailActivity/TambahListItem";
 
 // component empty state todo
 import TodoEmptyState from "./detailActivity/TodoEmptyState";
@@ -35,8 +36,11 @@ const DetailActivity = () =>{
     // state untuk menyimpan data todolist item
     let [todoItem,setTodoItem] = useState([])   
 
-    // state untuk mengecek update todo
+    // state untuk mengecek apakah terjadi perbuahan data todo
     let [checkUpdateTodo,setCheckUpdateTodo] =useState(false)
+
+    // state untuk mengecek apakah sedang dalam mode tambah todo
+    let [checkAddTodo,setCheckAddTodo] = useState(false)
     
     // state untuk mengecek apakah sedang dalam mode delete todo
     let [checkDeleteTodo,setCheckDeleteTodo] = useState(false)
@@ -45,7 +49,7 @@ const DetailActivity = () =>{
     let [datasetModalDelete,setDatasetModalDelete]= useState()
 
        // data state untuk mengecek apakah success menghapus data
-       let [successDelete,setSuccessDelete] = useState(false)
+    let [successDelete,setSuccessDelete] = useState(false)
 
     // data context untuk digunakan di component lain
     let detailContext = {
@@ -53,6 +57,8 @@ const DetailActivity = () =>{
         setDetailActivity,
         todoItem,
         setTodoItem,
+        checkAddTodo,
+        setCheckAddTodo,
         checkUpdateTodo,
         setCheckUpdateTodo,
         checkDeleteTodo,
@@ -120,6 +126,9 @@ const DetailActivity = () =>{
             </section>
             {
                 (checkDeleteTodo) && <DeleteListItem/> 
+            }
+            {
+                (checkAddTodo) && <TambahListItem/>
             }
         </contextDetailActivity.Provider>
     )
