@@ -84,7 +84,7 @@ const DetailActivity = () =>{
     // function untuk get data todo item
     // 
     useEffect(()=>{
-        fetch(`https://todo.api.devcode.gethired.id/todo-items?activity_group_id=${'28961'}`).then(Response=>{
+        fetch(`https://todo.api.devcode.gethired.id/todo-items?activity_group_id=${id}`).then(Response=>{
             if(!Response.ok){
                 throw new Error('TODO ITEM TIDAK BERHASIL DI DAPATKAN')
             }
