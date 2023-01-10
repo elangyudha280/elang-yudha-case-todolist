@@ -18,7 +18,7 @@ const DetailActivity = () =>{
 
     // data parameter url
     let {id} = useParams()
-    let notfoundNavigate = useNavigate()
+    let errorNavigate = useNavigate()
 
     // state untuk menyimpan nila data detail activity
     let [detailActivity,setDetailActivity] = useState([])
@@ -46,7 +46,7 @@ const DetailActivity = () =>{
             setDetailActivity(result)
         })
         .catch(err =>{
-            notfoundNavigate('/NotFound')
+            errorNavigate('/error')
         })
         .finally(()=>{setCheckLoading(false)})
     },[])
