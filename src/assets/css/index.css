@@ -340,6 +340,21 @@
   background-color: rebeccapurple;
   border-radius: 50%;
 }
+.todolist-container .todo-item .todo-item-priority-indicator[data-icon-todo=very-high] {
+  background: #ed4c5c;
+}
+.todolist-container .todo-item .todo-item-priority-indicator[data-icon-todo=high] {
+  background: #F8A541;
+}
+.todolist-container .todo-item .todo-item-priority-indicator[data-icon-todo=normal] {
+  background: #00A790;
+}
+.todolist-container .todo-item .todo-item-priority-indicator[data-icon-todo=low] {
+  background: #428BC1;
+}
+.todolist-container .todo-item .todo-item-priority-indicator[data-icon-todo=very-low] {
+  background: #8942C1;
+}
 .todolist-container .todo-item .todo-item-title {
   font-family: "Poppins", sans-serif;
   padding: 0;

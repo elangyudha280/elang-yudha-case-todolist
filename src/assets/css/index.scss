@@ -395,12 +395,29 @@ $bg-color:#F0F0F0;
             height: 20px;
         }
         
-        // todo icon priority
+        // todo-item-priority-indicator
         .todo-item-priority-indicator{
             width: 9px;
             height: 9px;
             background-color: rebeccapurple;
             border-radius: 50%;
+        }
+
+        // icon priority
+        .todo-item-priority-indicator[data-icon-todo="very-high"]{
+            background: #ed4c5c;
+        }
+        .todo-item-priority-indicator[data-icon-todo="high"]{
+            background: #F8A541;
+        }
+        .todo-item-priority-indicator[data-icon-todo="normal"]{
+            background: #00A790;
+        }
+        .todo-item-priority-indicator[data-icon-todo="low"]{
+            background: #428BC1;
+        }
+        .todo-item-priority-indicator[data-icon-todo="very-low"]{
+            background: #8942C1;
         }
 
         // todo-item-title

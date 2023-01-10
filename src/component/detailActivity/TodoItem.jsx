@@ -20,7 +20,7 @@ let Item = ({id,title,priority})=>{
     return (
         <div className="todo-item" data-cy="todo-item">
                 <input type="checkbox" className="todo-item-checkbox" data-cy="todo-item-checkbox" data-checkbox-todo={id} />
-                <div className="todo-item-priority-indicator" data-cy="todo-item-priority-indicator"></div>
+                <div className="todo-item-priority-indicator" data-icon-todo={priority} data-cy="todo-item-priority-indicator"></div>
                 <h3 className="todo-item-title" data-cy="todo-item-title">{title}</h3>
                 <button className="todo-item-edit-button" data-cy="todo-item-edit-button">
                     <i className="bi bi-pencil"></i>
@@ -42,7 +42,7 @@ const TodoItem = () =>{
         <section className="todolist-container">
             {
                 todoItem.map(e =>{
-                    return <Item key={e.id} id={e.id} title={e.title}/>
+                    return <Item key={e.id} id={e.id} title={e.title} priority={e.priority}/>
                 })
             }
         </section>
