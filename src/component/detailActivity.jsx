@@ -54,6 +54,11 @@ const DetailActivity = () =>{
         .finally(()=>{setCheckLoading(false)})
     },[])
 
+    // function untuk get data todo item
+    useEffect(()=>{
+        console.log('ok')
+    },[])
+
     
     
     return (
