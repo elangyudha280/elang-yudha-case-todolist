@@ -1,22 +1,40 @@
+import { useEffect,useState,useContext } from "react";
+import { contextDetailActivity } from "../../context/ContextDetailActivity";
 
 
-
-
-
-const TodoItem = () =>{
+let Item = ({id,title})=>{
     return (
-        <section className="todolist-container">
-            <div className="todo-item" data-cy="todo-item">
-                <input type="checkbox" className="todo-item-checkbox" data-cy="todo-item-checkbox" />
+        <div className="todo-item" data-cy="todo-item">
+                <input type="checkbox" className="todo-item-checkbox" data-cy="todo-item-checkbox" data-checkbox-todo={id} />
                 <div className="todo-item-priority-indicator" data-cy="todo-item-priority-indicator"></div>
-                <h3 className="todo-item-title" data-cy="todo-item-title">Belajar react js</h3>
+                <h3 className="todo-item-title" data-cy="todo-item-title">{title}</h3>
                 <button className="todo-item-edit-button" data-cy="todo-item-edit-button">
                     <i className="bi bi-pencil"></i>
                 </button>
                 <div className="todo-item-delete-button" data-cy="todo-item-delete-button">
                 <i className="bi bi-trash3"></i>
                 </div>
-            </div>
+        </div>
+    )
+}
+
+
+const TodoItem = () =>{
+    // use context detail activity
+
+    let {todoItem,setTodoItem} = useContext(contextDetailActivity);
+
+    useEffect(()=>{
+        console.log(todoItem)
+    },[todoItem])
+
+    return (
+        <section className="todolist-container">
+            {
+                todoItem.map(e =>{
+                    return <Item key={e.id} id={e.id} title={e.title}/>
+                })
+            }
         </section>
     )
 }

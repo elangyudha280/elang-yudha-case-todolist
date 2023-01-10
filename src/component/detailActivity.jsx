@@ -28,12 +28,16 @@ const DetailActivity = () =>{
 
     // state check loading
     let [checkLoading,setCheckLoading] = useState(true)
-    
+
+    // state untuk menyimpan data todolist item
+    let [todoItem,setTodoItem] = useState([])    
 
     // data context untuk digunakan di component lain
     let detailContext = {
         detailActivity,
-        setDetailActivity
+        setDetailActivity,
+        todoItem,
+        setTodoItem
     }
 
     // fungsi untuk get data detail activity
@@ -55,8 +59,21 @@ const DetailActivity = () =>{
     },[])
 
     // function untuk get data todo item
+    // 
     useEffect(()=>{
-        console.log('ok')
+        fetch(`https://todo.api.devcode.gethired.id/todo-items?activity_group_id=${'28961'}`).then(Response=>{
+            if(!Response.ok){
+                throw new Error('TODO ITEM TIDAK BERHASIL DI DAPATKAN')
+            }
+            return Response.json()
+        })
+        .then(result=>{
+            setTodoItem(result.data)
+        })
+        .catch(err =>{
+            errorNavigate('/error')
+        })
+        .finally(()=>{setCheckLoading(false)})
     },[])
 
     
@@ -70,8 +87,10 @@ const DetailActivity = () =>{
                     (
                         <>
                         <HeaderDetailActivity/>
-                        {/* <TodoEmptyState/> */}
-                        <TodoItem/>
+                            {
+                                // cek apakah todolist nya ada atau kosong
+                                (todoItem.length === 0) ? <TodoEmptyState/> : <TodoItem/>
+                            }
                         </>
                     )
                 }
