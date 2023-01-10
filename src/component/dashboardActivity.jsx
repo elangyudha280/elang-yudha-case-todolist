@@ -49,6 +49,7 @@ const DashboardActivity = ()=>{
 
     // fungsi untuk get data api activity
     useEffect(()=>{
+        document.title = 'Todo List App - Dashboard'
         fetch('https://todo.api.devcode.gethired.id/activity-groups?email=elangyudharakasiwi@gmail.com').then(Response=>{
             if(!Response.ok){
                 throw new Error('DATA ACTIVITY TIDAK BERHASIL DI DAPATKAN')
