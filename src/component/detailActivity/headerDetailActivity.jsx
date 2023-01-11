@@ -68,7 +68,7 @@ const HeaderDetailActivity = ()=>{
                         ?
                         <input type="text" className="input-edit-title" onInput={editInputTitle} data-cy="input-edit-title" defaultValue={inputTitle} autoFocus/>
                         :
-                        <h1 className="todo-title" data-cy="todo-title">{detailTitle}</h1> 
+                        <h1 className="todo-title" data-cy='todo-title'>{detailTitle}</h1> 
                     }
                     <button className="todo-title-edit-button" type="submit" data-cy="todo-title-edit-button">
                         <i className="bi bi-pencil"></i>
@@ -79,7 +79,7 @@ const HeaderDetailActivity = ()=>{
                 <button className="todo-sort-button" data-cy="todo-sort-button">
                 <i className="bi bi-funnel"></i>
                 </button>
-                <button className="todo-add-button" onClick={()=>{setCheckAddTodo(true)}} data-cy="todo-add-button">
+                <button className="todo-add-button" onClick={()=>{setCheckAddTodo(true)}} data-cy='todo-add-button'>
                         <i className="bi bi-plus-lg"></i>
                         Tambah
                 </button>

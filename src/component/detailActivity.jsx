@@ -118,7 +118,7 @@ const DetailActivity = () =>{
                         <HeaderDetailActivity/>
                             {
                                 // cek apakah todolist nya ada atau kosong
-                                (todoItem.length === 0) ? <TodoEmptyState/> : <TodoItem/>
+                                (todoItem.length === 0 || todoItem === undefined) ? <TodoEmptyState/> : <TodoItem/>
                             }
                         </>
                     )
