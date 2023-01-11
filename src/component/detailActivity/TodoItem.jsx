@@ -22,7 +22,7 @@ let Item = ({id,title,priority})=>{
                 <input type="checkbox" className="todo-item-checkbox" data-cy="todo-item-checkbox" data-checkbox-todo={id} />
                 <div className="todo-item-priority-indicator" data-icon-todo={priority} data-cy="todo-item-priority-indicator"></div>
                 <h3 className="todo-item-title" data-cy="todo-item-title">{title}</h3>
-                <button className="todo-item-edit-button" data-cy="todo-item-edit-button">
+                <button className="todo-item-edit-button" data-cy="todo-item-edit-button" data-edit-id={id}>
                     <i className="bi bi-pencil"></i>
                 </button>
                 <div className="todo-item-delete-button" data-cy="todo-item-delete-button">
