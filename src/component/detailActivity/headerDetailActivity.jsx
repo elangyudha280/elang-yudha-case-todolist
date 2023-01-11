@@ -68,7 +68,9 @@ const HeaderDetailActivity = ()=>{
                         ?
                         <input type="text" className="input-edit-title" onInput={editInputTitle} data-cy="input-edit-title" defaultValue={inputTitle} autoFocus/>
                         :
-                        <h1 className="todo-title" data-cy='todo-title'>{detailTitle}</h1> 
+                        <h1 className="todo-title" data-cy='todo-title' onClick={()=>{
+                            (!modeEditTitle) ? setModeEditTitle(true) : setModeEditTitle(false)
+                        }}>{detailTitle}</h1> 
                     }
                     <button className="todo-title-edit-button" type="submit" data-cy="todo-title-edit-button">
                         <i className="bi bi-pencil"></i>
