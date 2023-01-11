@@ -1,13 +1,15 @@
 import  {useState,useEffect,useContext} from 'react'
 import { contextDetailActivity } from '../../../context/ContextDetailActivity'
 import validator from 'validator'
+import { useParams,useNavigate } from 'react-router-dom'
 
 
 
 const TambahListItem = () =>{
 
+    let {id}= useParams()
     // data context detail activity
-    let {setCheckAddTodo} = useContext(contextDetailActivity)
+    let {setCheckAddTodo,checkUpdateTodo,setCheckUpdateTodo} = useContext(contextDetailActivity)
 
     // state untuk data value input
     let [valueInputAddTodo,setValueInputAddTodo] = useState('')
@@ -85,6 +87,41 @@ const TambahListItem = () =>{
         }
     }
 
+    // event add data todo
+    const addTodo = ()=>{
+        
+        let raw = {
+            activity_group_id: id,
+            title: valueInputAddTodo,
+            priority:dataPriority.datasetPriority,
+        };
+
+        let requestOptions = {
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(raw),
+        };
+
+        fetch("https://todo.api.devcode.gethired.id/todo-items", requestOptions)
+        .then(response => {
+            if(!response.ok){
+                return 'error'
+            }
+           return response.status
+        })
+        .then(result => {
+            setCheckAddTodo(false)
+        })
+        .catch(error => {
+            // setCheckFailTodo(true)
+            console.log(error)
+        })
+        .finally(()=>{
+            return (!checkUpdateTodo) ? setCheckUpdateTodo(true) : setCheckUpdateTodo(false)
+        })
+    }
 
     return (
         <section className="container-modal-tambah-item" onClick={()=>{setCheckAddTodo(false)}}>
@@ -149,7 +186,7 @@ const TambahListItem = () =>{
                     </div>
                 </section>
                 <div className="modal-add-save-button">
-                    <button type='button' data-cy="modal-add-save-button" disabled={checkDisabledButton} onClick={()=>console.log('ok')}>Simpan</button>
+                    <button type='button' data-cy="modal-add-save-button" onClick={addTodo} disabled={checkDisabledButton}>Simpan</button>
                 </div>
             </section>
         </section>
