@@ -447,7 +447,7 @@ $bg-color:#F0F0F0;
                 border-radius: 0.2em;
                 
                 .icon-up-active{
-                    transform: rotate(180deg);
+                    transform: rotate(-180deg);
                 }
                 
                 .modal-add-priority-dropdown{
@@ -503,6 +503,12 @@ $bg-color:#F0F0F0;
                     span{
                         flex: 1;
                     }
+                    i{
+                        opacity: 0;
+                    }
+                    .icon-check-priority-active{
+                        opacity: 1;
+                    }
                 }
             }
         }
@@ -515,6 +521,10 @@ $bg-color:#F0F0F0;
             padding: 0 1.2em;
             padding-bottom: 1em;
             
+            button:disabled{
+                opacity: 0.6;
+            }
+
             button{
                 border: none;
                 padding: 0.7em 1.8em;

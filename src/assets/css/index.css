@@ -376,7 +376,7 @@
   border-radius: 0.2em;
 }
 .container-modal-tambah-item .modal-add .body-modal-add .container-modal-add-priority-dropdown .icon-up-active {
-  transform: rotate(180deg);
+  transform: rotate(-180deg);
 }
 .container-modal-tambah-item .modal-add .body-modal-add .container-modal-add-priority-dropdown .modal-add-priority-dropdown {
   position: relative;
@@ -428,12 +428,21 @@
 .container-modal-tambah-item .modal-add .body-modal-add .container-modal-add-priority-dropdown .modal-add-priority-item span {
   flex: 1;
 }
+.container-modal-tambah-item .modal-add .body-modal-add .container-modal-add-priority-dropdown .modal-add-priority-item i {
+  opacity: 0;
+}
+.container-modal-tambah-item .modal-add .body-modal-add .container-modal-add-priority-dropdown .modal-add-priority-item .icon-check-priority-active {
+  opacity: 1;
+}
 .container-modal-tambah-item .modal-add .modal-add-save-button {
   width: 100%;
   display: flex;
   justify-content: end;
   padding: 0 1.2em;
   padding-bottom: 1em;
+}
+.container-modal-tambah-item .modal-add .modal-add-save-button button:disabled {
+  opacity: 0.6;
 }
 .container-modal-tambah-item .modal-add .modal-add-save-button button {
   border: none;
