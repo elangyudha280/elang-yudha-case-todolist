@@ -141,7 +141,7 @@ const TambahListItem = () =>{
                         priority
                     </label>
                     <div className="container-modal-add-priority-dropdown">
-                            <button className="modal-add-priority-dropdown" data-cy="modal-add-priority-dropdown" onClick={dropdownPriority}>
+                            <button className="modal-add-priority-dropdown" data-cy='modal-add-priority-item' onClick={dropdownPriority}>
                                 <div className="d-flex devide-title">
                                     <div className="icon-input-priority" data-icon-todo={dataPriority.datasetPriority}>
                                     </div>
@@ -155,27 +155,27 @@ const TambahListItem = () =>{
                                 (checkPriority)
                                  && 
                                  <div className="divide-primary">
-                                <button className="modal-add-priority-item" onClick={valuePriority.bind(this,'very high','very-high')}   data-title-priority='very high'  data-priority='very-high'  data-cy="modal-add-priority-dropdown">
+                                <button className="modal-add-priority-item" onClick={valuePriority.bind(this,'very high','very-high')}   data-title-priority='very high'  data-priority='very-high'  data-cy='modal-add-priority-item'>
                                     <div className="icon-input-priority" data-icon-todo="very-high" data-title-priority='very high'  data-priority='very-high'>
                                     </div>
                                     <span data-title-priority='very high'>very high</span>
                                 </button>
-                                <button className="modal-add-priority-item" data-cy="modal-add-priority-dropdown" onClick={valuePriority.bind(this,'high','high')}>
+                                <button className="modal-add-priority-item" data-cy='modal-add-priority-item' onClick={valuePriority.bind(this,'high','high')}>
                                     <div className="icon-input-priority" data-icon-todo="high" >
                                     </div>
                                      <span>high</span>
                                 </button>
-                                <button className="modal-add-priority-item" data-cy="modal-add-priority-dropdown" onClick={valuePriority.bind(this,'medium','medium')}>
+                                <button className="modal-add-priority-item" data-cy='modal-add-priority-item' onClick={valuePriority.bind(this,'medium','medium')}>
                                     <div className="icon-input-priority" data-icon-todo="normal">
                                     </div>
                                     <span>medium</span>
                                 </button>
-                                <button className="modal-add-priority-item" data-cy="modal-add-priority-dropdown" onClick={valuePriority.bind(this,'low','low')}>
+                                <button className="modal-add-priority-item" data-cy='modal-add-priority-item' onClick={valuePriority.bind(this,'low','low')}>
                                     <div className="icon-input-priority" data-icon-todo="low">
                                     </div>
                                     <span>low</span>
                                 </button>
-                                <button className="modal-add-priority-item" data-cy="modal-add-priority-dropdown" onClick={valuePriority.bind(this,'very low','very-low')}>
+                                <button className="modal-add-priority-item" data-cy='modal-add-priority-item' onClick={valuePriority.bind(this,'very low','very-low')}>
                                     <div className="icon-input-priority" data-icon-todo="very-low">
                                     </div>
                                     <span>very-low</span>
