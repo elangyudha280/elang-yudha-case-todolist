@@ -52,15 +52,16 @@ const DeleteListItem = ()=>{
     // context check delete todo
     let {setCheckDeleteTodo,successDelete,setSuccessDelete} = useContext(contextDetailActivity) 
 
-
-
     return (
         
         <div className="modal-delete-container-activity" data-cy='modal-delete' onClick={()=>{
+            // check untuk menghilangkan modal delete
             setCheckDeleteTodo(false)
+            // check untuk menghilangkan modal information success delete todo item
             setSuccessDelete(false)
             }}>
            {
+            // check apakah data todo item berhasil di hapus
             (successDelete) ? <AlertActivity/> : <DeleteTodo/> 
            }
         </div>

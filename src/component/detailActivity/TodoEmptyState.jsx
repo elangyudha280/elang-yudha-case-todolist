@@ -8,7 +8,9 @@ const TodoEmptyState =()=>{
     let {setCheckAddTodo,setCheckModeEditTodo} = useContext(contextDetailActivity)
     return (
         <button className="todo-empty-state" onClick={()=>{
+            // check untuk menampilkan modal tambah todo item
             setCheckAddTodo(true)
+            // check untuk menandakan sedang tidak dalam mode edit todo item
             setCheckModeEditTodo(false)
             }} data-cy="todo-empty-state">
             <img src={imgEmptyTodo} alt="No todo" />

@@ -6,12 +6,13 @@ import { useParams,useNavigate } from 'react-router-dom'
 
 
 const TambahListItem = () =>{
-
+    // data url parameter
     let {id}= useParams()
+
     // data context detail activity
     let {setCheckAddTodo,checkUpdateTodo,setCheckUpdateTodo,checkModeEditTodo,datasetModalDelete} = useContext(contextDetailActivity)
 
-    // state untuk data value input
+    // state untuk data value input tambah todo
     let [valueInputAddTodo,setValueInputAddTodo] = useState('')
 
     // state untuk disabled button jika nilai input kosong
@@ -27,7 +28,7 @@ const TambahListItem = () =>{
     let [checkPriority,setCheckPriority] = useState(false)
 
     useEffect(()=>{
-           if(validator.isEmpty(document.querySelector('.modal-add-name-input').value)) {
+        if(validator.isEmpty(document.querySelector('.modal-add-name-input').value)) {
         setCheckDisabledButton(true)
         return
     }
@@ -35,7 +36,7 @@ const TambahListItem = () =>{
     },[])
 
   useEffect(()=>{
-
+    // check ketika sedang mode edit ada dataset id ,title dan edit priority yg dikirimkan atau tidak
     if(datasetModalDelete !== undefined && datasetModalDelete.editPriority){
         let titlePriority = ''
             if(datasetModalDelete.editPriority === 'very-high'){
@@ -55,8 +56,6 @@ const TambahListItem = () =>{
             })
             return
     }
-
-   
   },[])
 
     // event get value input add todo
@@ -205,7 +204,7 @@ const TambahListItem = () =>{
                             </button>
                             {/* dropdown item priority */}
                             {
-                                // cek jika sedang milih priority
+                                // chek jika sedang memilih priority
                                 (checkPriority)
                                  && 
                                  <div className="divide-primary">

@@ -9,6 +9,8 @@ import HeaderDetailActivity from "./detailActivity/headerDetailActivity";
 
 // modal delete list item || todo
 import DeleteListItem from "./detailActivity/modalDetailActivity/DeleteListItem";
+
+// modal add list item || todo
 import TambahListItem from "./detailActivity/modalDetailActivity/TambahListItem";
 
 // component empty state todo
@@ -25,9 +27,10 @@ const DetailActivity = () =>{
 
     // data parameter url
     let {id} = useParams()
+    // navigate untuk mengarahkan ke page error ketika data gagal di dapatkan
     let errorNavigate = useNavigate()
 
-    // state untuk menyimpan nila data detail activity
+    // state untuk menyimpan data detail activity
     let [detailActivity,setDetailActivity] = useState([])
 
     // state check loading
@@ -36,7 +39,7 @@ const DetailActivity = () =>{
     // state untuk menyimpan data todolist item
     let [todoItem,setTodoItem] = useState([])   
 
-    // state untuk mengecek apakah terjadi perbuahan data todo
+    // state untuk mengecek apakah terjadi perbuahan pada data todo
     let [checkUpdateTodo,setCheckUpdateTodo] =useState(false)
 
     // state untuk mengecek apakah sedang dalam mode tambah todo
@@ -45,10 +48,10 @@ const DetailActivity = () =>{
     // state untuk mengecek apakah sedang dalam mode delete todo
     let [checkDeleteTodo,setCheckDeleteTodo] = useState(false)
 
-    // state untuk data dataset id dan title modal delete
+    // state untuk data dataset id dan title modal 
     let [datasetModalDelete,setDatasetModalDelete]= useState()
 
-       // data state untuk mengecek apakah success menghapus data
+    // data state untuk mengecek apakah success menghapus data
     let [successDelete,setSuccessDelete] = useState(false)
 
     // state untuk mengecek apakah sedang dalam mode edit todo
@@ -84,9 +87,11 @@ const DetailActivity = () =>{
             return Response.json()
         })
         .then(result=>{
+            // update data detail activity
             setDetailActivity(result)
         })
         .catch(err =>{
+            // arahkan ke page error
             errorNavigate('/error')
         })
         .finally(()=>{setCheckLoading(false)})
@@ -102,9 +107,11 @@ const DetailActivity = () =>{
             return Response.json()
         })
         .then(result=>{
+            // update data todo item
             setTodoItem(result.data)
         })
         .catch(err =>{
+            // arahkan ke page error
             errorNavigate('/error')
         })
         .finally(()=>{''})
@@ -116,6 +123,7 @@ const DetailActivity = () =>{
         <contextDetailActivity.Provider value={detailContext}>
             <section className="detail-activity container mx-auto">
                 {
+                    // check apakah sedang loading
                     (checkLoading) ? <Loading/>
                     :
                     (
@@ -129,10 +137,14 @@ const DetailActivity = () =>{
                     )
                 }
             </section>
+            {/* modal delete todo item */}
             {
+                // check apakah sedang dalam mode delete todo item
                 (checkDeleteTodo) && <DeleteListItem/> 
             }
+            {/* modal tambah todo item */}
             {
+                // check apakah sedang dalam moda tambah todo item
                 (checkAddTodo) && <TambahListItem/>
             }
         </contextDetailActivity.Provider>

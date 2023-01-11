@@ -7,8 +7,10 @@ import DashboardNewItem from "./dashboardActivity/DashboardNewItem";
 
 // import activity empty state
 import ActivityEmptyState from "./dashboardActivity/ActivityEmptyState";
+
 // component animate loading
 import Loading from "./loading/loading";
+
 // modal delete activity
 import DeleteActivity from "./dashboardActivity/modalActivity/DeleteActivity";
 

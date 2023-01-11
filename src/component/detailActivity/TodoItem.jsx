@@ -24,7 +24,9 @@ let Item = ({id,title,priority})=>{
             editPriority:e.target.dataset.editPriority
         }
         setDatasetModalDelete(dataModalEdit)
+        // check untuk menampilkan modal tambah todo item
         setCheckAddTodo(true)
+        // check untuk menandakan bahwa sedang dalam mode edit todo item
         setCheckModeEditTodo(true)
     }
     
@@ -45,7 +47,6 @@ let Item = ({id,title,priority})=>{
 
 const TodoItem = () =>{
     // use context detail activity
-
     let {todoItem} = useContext(contextDetailActivity);
 
     return (

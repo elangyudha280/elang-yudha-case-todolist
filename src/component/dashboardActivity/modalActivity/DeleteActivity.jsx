@@ -1,12 +1,14 @@
 
 import { useContext,useEffect,useState } from "react"
 
+// import context data activity
 import { contextDataActivity } from "../../../context/ContextDashboardActivity"
 
 
 
 // component modal delete
 const ModalDelete = ()=>{
+    // data context dari dashboard activity 
     let {datasetModalActivity:{deleteActivityId,deleteActivityTitle},updateActivity,setUpdateActivity,setCheckDeleteActivity,setModeDelete} = useContext(contextDataActivity)
 
     let stopPropagation = (e)=>{
@@ -63,15 +65,18 @@ const AlertActivity = ()=>{
 }
 
 const DeleteActivity = ()=>{
-
+    // data context dari dashboard activity
     let {setModeDelete,checkDeleteActivity,setCheckDeleteActivity}= useContext(contextDataActivity)
 
     return(
         <div className="modal-delete-container-activity" onClick={()=>{
+            // check untuk mengilangkan modal delete activity
             setModeDelete(false)
+            // check untuk mengilangkan modal information success menghapus data activity
             setCheckDeleteActivity(false)
             }}>
             
+            {/* check apakah berhasil delete data activity */}
             {
                 (!checkDeleteActivity) ?  <ModalDelete/> : <AlertActivity/> 
             }

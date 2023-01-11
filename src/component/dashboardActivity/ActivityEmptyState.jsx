@@ -3,7 +3,7 @@
 import imgEmptyActivity from '../../assets/images/activity-empty-state.png'
 
 
-
+// compononent empty activity
 const ActivityEmptyState = ({eventAddActivity})=>{
     return(
         <>
