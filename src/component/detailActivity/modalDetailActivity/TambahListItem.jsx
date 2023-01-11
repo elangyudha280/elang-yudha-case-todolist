@@ -141,7 +141,7 @@ const TambahListItem = () =>{
                         priority
                     </label>
                     <div className="container-modal-add-priority-dropdown">
-                            <button className="modal-add-priority-dropdown" data-cy='modal-add-priority-item' onClick={dropdownPriority}>
+                            <button className="modal-add-priority-dropdown" data-cy='modal-add-priority-dropdown' onClick={dropdownPriority}>
                                 <div className="d-flex devide-title">
                                     <div className="icon-input-priority" data-icon-todo={dataPriority.datasetPriority}>
                                     </div>
