@@ -5,9 +5,12 @@ import { contextDetailActivity } from '../../context/ContextDetailActivity';
 
 const TodoEmptyState =()=>{
     // data context detail activity
-    let {setCheckAddTodo} = useContext(contextDetailActivity)
+    let {setCheckAddTodo,setCheckModeEditTodo} = useContext(contextDetailActivity)
     return (
-        <button className="todo-empty-state" onClick={()=>{setCheckAddTodo(true)}} data-cy="todo-empty-state">
+        <button className="todo-empty-state" onClick={()=>{
+            setCheckAddTodo(true)
+            setCheckModeEditTodo(false)
+            }} data-cy="todo-empty-state">
             <img src={imgEmptyTodo} alt="No todo" />
         </button>
     )

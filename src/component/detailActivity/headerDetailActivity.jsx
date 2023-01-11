@@ -7,7 +7,7 @@ import { contextDetailActivity } from "../../context/ContextDetailActivity";
 const HeaderDetailActivity = ()=>{
     let {id} = useParams()
     // data context dari component detailActivity
-    let {detailActivity,setCheckAddTodo} = useContext(contextDetailActivity);
+    let {detailActivity,setCheckAddTodo,setCheckModeEditTodo} = useContext(contextDetailActivity);
 
     // state data detail title
     let [detailTitle,setDetailTitle] = useState('')
@@ -81,7 +81,10 @@ const HeaderDetailActivity = ()=>{
                 <button className="todo-sort-button" data-cy="todo-sort-button">
                 <i className="bi bi-funnel"></i>
                 </button>
-                <button className="todo-add-button" onClick={()=>{setCheckAddTodo(true)}} data-cy='todo-add-button'>
+                <button className="todo-add-button" onClick={()=>{
+                    setCheckAddTodo(true)
+                    setCheckModeEditTodo(false)
+                    }} data-cy='todo-add-button'>
                         <i className="bi bi-plus-lg"></i>
                         Tambah
                 </button>

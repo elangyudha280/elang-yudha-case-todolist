@@ -625,9 +625,8 @@ div[data-icon-todo="very-low"]{
             padding: 0;
             background: transparent;
             font-size: 1.2em;
-            i{
+            cursor: pointer;
                 color: #777777;
-            }
         }
 
         // todo-item-delete-button

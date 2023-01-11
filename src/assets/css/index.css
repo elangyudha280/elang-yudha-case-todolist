@@ -531,8 +531,7 @@ div[data-icon-todo=very-low] {
   padding: 0;
   background: transparent;
   font-size: 1.2em;
-}
-.todolist-container .todo-item .todo-item-edit-button i {
+  cursor: pointer;
   color: #777777;
 }
 .todolist-container .todo-item .todo-item-delete-button {

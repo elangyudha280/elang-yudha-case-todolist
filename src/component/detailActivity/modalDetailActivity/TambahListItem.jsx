@@ -9,7 +9,7 @@ const TambahListItem = () =>{
 
     let {id}= useParams()
     // data context detail activity
-    let {setCheckAddTodo,checkUpdateTodo,setCheckUpdateTodo} = useContext(contextDetailActivity)
+    let {setCheckAddTodo,checkUpdateTodo,setCheckUpdateTodo,checkModeEditTodo,datasetModalDelete} = useContext(contextDetailActivity)
 
     // state untuk data value input
     let [valueInputAddTodo,setValueInputAddTodo] = useState('')
@@ -26,6 +26,39 @@ const TambahListItem = () =>{
     // state untuk cek input priority
     let [checkPriority,setCheckPriority] = useState(false)
 
+    useEffect(()=>{
+           if(validator.isEmpty(document.querySelector('.modal-add-name-input').value)) {
+        setCheckDisabledButton(true)
+        return
+    }
+    setCheckDisabledButton(false)
+    },[])
+
+  useEffect(()=>{
+
+    if(datasetModalDelete !== undefined && datasetModalDelete.editPriority){
+        let titlePriority = ''
+            if(datasetModalDelete.editPriority === 'very-high'){
+                titlePriority = 'very high'
+            }
+            else if(datasetModalDelete.editPriority === 'very-low'){
+                titlePriority = 'very low'
+            }
+            else if(datasetModalDelete.editPriority === 'normal'){
+                titlePriority = 'medium'
+            }else{
+                titlePriority = datasetModalDelete.editPriority
+            }
+         setDataPriority({
+                title:titlePriority,
+                datasetPriority:datasetModalDelete.editPriority
+            })
+            return
+    }
+
+   
+  },[])
+
     // event get value input add todo
     let getValueInput = (e)=>{
         // CHECK APAKAH VALUE INPUT ADD TODO KOSONG
@@ -36,9 +69,6 @@ const TambahListItem = () =>{
         setCheckDisabledButton(false)
         setValueInputAddTodo(e.target.value)
     }
-
-
-
 
     // event dropdown input priorty
     let dropdownPriority = () =>{
@@ -115,9 +145,33 @@ const TambahListItem = () =>{
             setCheckAddTodo(false)
         })
         .catch(error => {
-            // setCheckFailTodo(true)
             console.log(error)
         })
+        .finally(()=>{
+            return (!checkUpdateTodo) ? setCheckUpdateTodo(true) : setCheckUpdateTodo(false)
+        })
+    }
+
+    // event edit data todo
+    let editTodo = ()=>{
+        let raw = {
+            title: (validator.isEmpty(valueInputAddTodo)) ? datasetModalDelete.editTitle : valueInputAddTodo,
+            priority:dataPriority.datasetPriority,
+        };
+
+        var requestOptions = {
+        method: 'PATCH',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(raw),
+        redirect: 'follow'
+        };
+
+        fetch(`https://todo.api.devcode.gethired.id/todo-items/${datasetModalDelete.editId}`, requestOptions)
+        .then(response => response.status)
+        .then(result => setCheckAddTodo(false))
+        .catch(error => console.log('error', error))
         .finally(()=>{
             return (!checkUpdateTodo) ? setCheckUpdateTodo(true) : setCheckUpdateTodo(false)
         })
@@ -127,7 +181,7 @@ const TambahListItem = () =>{
         <section className="container-modal-tambah-item" onClick={()=>{setCheckAddTodo(false)}}>
             <section className="modal-add" data-cy="modal-add" onClick={(event)=>{event.stopPropagation()}}>
                 <header className="header-modal-add">
-                    <h3 className="modal-add-title" data-cy="modal-add-title">Tambah List Item</h3>
+                    <h3 className="modal-add-title" data-cy="modal-add-title">{(checkModeEditTodo) ? 'Edit List Item' :'Tambah List Item'  }</h3>
                     <button className="modal-add-close-button" data-cy="modal-add-close-button">
                         <i className="bi bi-x" onClick={()=>{setCheckAddTodo(false)}}></i>
                     </button>
@@ -136,7 +190,7 @@ const TambahListItem = () =>{
                     <label htmlFor="modal-add-name-input" className="modal-add-name-title" data-cy="modal-add-name-title">
                         nama list item
                     </label>
-                    <input type="text" className="modal-add-name-input" onChange={getValueInput} placeholder="Tambahkan nama list item" id="modal-add-name-input" data-cy="modal-add-name-input" />
+                    <input type="text" className="modal-add-name-input" onChange={getValueInput} placeholder="Tambahkan nama list item" defaultValue={(checkModeEditTodo)? datasetModalDelete.editTitle : ''} id="modal-add-name-input" data-cy="modal-add-name-input" />
                     <label className="modal-add-priority-title mt-3" data-cy="modal-add-priority-title">
                         priority
                     </label>
@@ -186,7 +240,7 @@ const TambahListItem = () =>{
                     </div>
                 </section>
                 <div className="modal-add-save-button">
-                    <button type='button' data-cy="modal-add-save-button" onClick={addTodo} disabled={checkDisabledButton}>Simpan</button>
+                    <button type='button' data-cy="modal-add-save-button" onClick={(checkModeEditTodo) ? editTodo : addTodo}  disabled={checkDisabledButton}>Simpan</button>
                 </div>
             </section>
         </section>

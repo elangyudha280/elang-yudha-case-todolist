@@ -51,6 +51,9 @@ const DetailActivity = () =>{
        // data state untuk mengecek apakah success menghapus data
     let [successDelete,setSuccessDelete] = useState(false)
 
+    // state untuk mengecek apakah sedang dalam mode edit todo
+    let [checkModeEditTodo,setCheckModeEditTodo] = useState(false)
+
     // data context untuk digunakan di component lain
     let detailContext = {
         detailActivity,
@@ -66,7 +69,9 @@ const DetailActivity = () =>{
         datasetModalDelete,
         setDatasetModalDelete,
         successDelete,
-        setSuccessDelete
+        setSuccessDelete,
+        checkModeEditTodo,
+        setCheckModeEditTodo
     }
 
     // fungsi untuk get data detail activity
