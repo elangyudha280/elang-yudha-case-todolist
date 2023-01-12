@@ -62,9 +62,9 @@ let Item = ({id,title,priority,activeTodo})=>{
                 <h3 className={`todo-item-title ${(!activeTodo) && 'todo-done'}`} data-cy="todo-item-title">{title}</h3>
                     <i className="bi bi-pencil todo-item-edit-button" data-cy="todo-item-edit-button" onClick={modeEditTodo} data-edit-id={id} data-edit-title={title} data-edit-priority={priority}></i>
                 
-                <div className="todo-item-delete-button" data-cy="todo-item-delete-button">
-                 <i className="bi bi-trash3" data-cy='modal-delete' data-delete-id={id} onClick={setDataset} data-delete-title={title}></i>
-                </div>
+                <button className="todo-item-delete-button" data-cy="todo-item-delete-button"  data-delete-id={id} onClick={setDataset} data-delete-title={title}> 
+                 <i className="bi bi-trash3" data-cy='modal-delete' data-delete-id={id} data-delete-title={title}></i>
+                </button>
         </div>
     )
 }

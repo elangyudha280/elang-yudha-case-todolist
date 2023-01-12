@@ -40,7 +40,7 @@ const DeleteTodo = ()=>{
 const AlertActivity = ()=>{
     return (
         <div className="modal-information" data-cy='modal-information'>
-            <i className="bi bi-exclamation-circle text-success" data-cy='modal-information'></i>
+            <i className="bi bi-exclamation-circle text-success"></i>
             <p data-cy="modal-information-title">Activity berhasil dihapus</p>
         </div>
     )
