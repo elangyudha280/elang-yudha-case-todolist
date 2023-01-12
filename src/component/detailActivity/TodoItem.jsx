@@ -29,6 +29,12 @@ let Item = ({id,title,priority})=>{
         // check untuk menandakan bahwa sedang dalam mode edit todo item
         setCheckModeEditTodo(true)
     }
+
+    // event check todo done
+    let todoDone = ()=>{
+        return
+    }
+
     
     return (
         <div className="todo-item" data-cy="todo-item">
