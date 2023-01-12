@@ -330,6 +330,9 @@
 .header-detail-activity .devide-sorting .sort-selection .icon-sort {
   color: #16abf8;
 }
+.header-detail-activity .devide-sorting .sort-selection .icon-check-sort {
+  opacity: 0;
+}
 .header-detail-activity .devide-sorting .sort-selection span {
   flex: 1;
   text-transform: capitalize;

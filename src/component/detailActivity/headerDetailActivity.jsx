@@ -104,27 +104,27 @@ const HeaderDetailActivity = ()=>{
                     <button className="sort-selection" data-cy="sort-selection">
                     <i className="bi bi-sort-down icon-sort"></i>
                     <span className="title-sort">terbaru</span>
-                    <i className="bi bi-check-lg"></i>
+                    <i className="bi bi-check-lg icon-check-sort"></i>
                     </button>
                     <button className="sort-selection" data-cy="sort-selection">
                     <i className="bi bi-sort-up icon-sort"></i>
                     <span className="title-sort">terlama</span>
-                    <i className="bi bi-check-lg"></i>
+                    <i className="bi bi-check-lg icon-check-sort"></i>
                     </button>
                     <button className="sort-selection" data-cy="sort-selection">
                     <i className="bi bi-sort-alpha-up icon-sort"></i>
                     <span className="title-sort">A-Z</span>
-                    <i className="bi bi-check-lg"></i>
+                    <i className="bi bi-check-lg icon-check-sort"></i>
                     </button>
                     <button className="sort-selection" data-cy="sort-selection">
                     <i className="bi bi-sort-alpha-up-alt icon-sort"></i>
                     <span className="title-sort">Z-A</span>
-                    <i className="bi bi-check-lg"></i>
+                    <i className="bi bi-check-lg icon-check-sort"></i>
                     </button>
                     <button className="sort-selection" data-cy="sort-selection">
                     <i className="bi bi-filter icon-sort"></i>
                     <span className="title-sort">belum selesai</span>
-                    <i className="bi bi-check-lg"></i>
+                    <i className="bi bi-check-lg icon-check-sort"></i>
                     </button>
                     </div>
                 }
