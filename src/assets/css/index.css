@@ -266,6 +266,7 @@
 }
 .header-detail-activity .button-action {
   display: flex;
+  position: relative;
   gap: 0.5em;
   justify-content: end;
 }
@@ -294,6 +295,45 @@
 }
 .header-detail-activity .button-action .todo-add-button:hover {
   opacity: 0.6;
+}
+.header-detail-activity .devide-sorting {
+  position: absolute;
+  top: 120%;
+  z-index: 5;
+  right: 0;
+  width: 100%;
+  padding: 0.2em 0;
+  border-radius: 0.3em;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 0.5em -0.8px rgba(0, 0, 0, 0.4);
+}
+.header-detail-activity .devide-sorting .sort-selection {
+  position: relative;
+  width: 100%;
+  height: 52px;
+  padding: 0 0.8em;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+.header-detail-activity .devide-sorting .sort-selection i {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.header-detail-activity .devide-sorting .sort-selection .icon-sort {
+  color: #16abf8;
+}
+.header-detail-activity .devide-sorting .sort-selection span {
+  flex: 1;
+  text-transform: capitalize;
+  text-align: left;
 }
 
 .container-modal-tambah-item {
@@ -637,6 +677,10 @@ div[data-icon-todo=very-low] {
     grid-row-start: 2;
     grid-row-end: 3;
     height: 50px;
+  }
+  .header-detail-activity .devide-sorting {
+    width: 200px;
+    right: 0;
   }
   .todo-empty-state {
     margin-top: 6em;
