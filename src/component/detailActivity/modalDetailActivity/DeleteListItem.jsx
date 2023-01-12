@@ -22,7 +22,7 @@ const DeleteTodo = ()=>{
     })
     }
     return(
-        <div className="modal-delete" data-cy='modal-delete' onClick={(e)=>{e.stopPropagation()}}>
+        <section className="modal-delete" data-cy='modal-delete' onClick={(e)=>{e.stopPropagation()}}>
         <i className="bi bi-exclamation-triangle modal-delete-icon" data-cy="modal-delete-icon"></i>
         <p className="modal-delete-title" data-cy="modal-delete-title">Apakah anda yakin menghapus activity <span className="activity-title">“{deleteTitle}“?</span></p>
         <div className="modal-footer" data-cy='modal-delete-confirm-button'>
@@ -32,8 +32,8 @@ const DeleteTodo = ()=>{
             <button className="modal-delete-confirm-button btn btn-danger"   data-cy='modal-delete-confirm-button' onClick={deleteTodo} data-delete-id={deleteId}>
                 Hapus
             </button>
-            </div>
         </div>
+        </section>
     )
 }
 
@@ -54,7 +54,7 @@ const DeleteListItem = ()=>{
 
     return (
         
-        <div className="modal-delete-container-activity" data-cy='modal-information' onClick={()=>{
+        <section className="modal-delete-container-activity" data-cy='modal-information' onClick={()=>{
             // check untuk menghilangkan modal delete
             setCheckDeleteTodo(false)
             // check untuk menghilangkan modal information success delete todo item
@@ -64,7 +64,7 @@ const DeleteListItem = ()=>{
             // check apakah data todo item berhasil di hapus
             (successDelete) ? <AlertActivity/> : <DeleteTodo/> 
            }
-        </div>
+        </section>
     )
 }
 
