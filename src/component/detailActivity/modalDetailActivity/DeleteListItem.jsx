@@ -25,7 +25,7 @@ const DeleteTodo = ()=>{
         <div className="modal-delete" data-cy='modal-delete' onClick={(e)=>{e.stopPropagation()}}>
         <i className="bi bi-exclamation-triangle modal-delete-icon" data-cy="modal-delete-icon"></i>
         <p className="modal-delete-title" data-cy="modal-delete-title">Apakah anda yakin menghapus activity <span className="activity-title">“{deleteTitle}“?</span></p>
-        <div className="modal-footer">
+        <div className="modal-footer" data-cy='modal-delete-confirm-button'>
             <button className="modal-delete-cancel-button" onClick={()=>{setCheckDeleteTodo(false)}} data-cy="modal-delete-cancel-button">
                 Batal
             </button>
@@ -40,7 +40,7 @@ const DeleteTodo = ()=>{
 const AlertActivity = ()=>{
     return (
         <div className="modal-information" data-cy='modal-information'>
-            <i className="bi bi-exclamation-circle text-success" data-cy="modal-information-icon"></i>
+            <i className="bi bi-exclamation-circle text-success" data-cy='modal-information'></i>
             <p data-cy="modal-information-title">Activity berhasil dihapus</p>
         </div>
     )
