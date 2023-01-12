@@ -54,7 +54,7 @@ const DeleteListItem = ()=>{
 
     return (
         
-        <div className="modal-delete-container-activity" data-cy='modal-delete' onClick={()=>{
+        <div className="modal-delete-container-activity" data-cy='modal-information' onClick={()=>{
             // check untuk menghilangkan modal delete
             setCheckDeleteTodo(false)
             // check untuk menghilangkan modal information success delete todo item
