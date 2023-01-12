@@ -2,9 +2,9 @@ import { useEffect,useState,useContext } from "react";
 import { contextDetailActivity } from "../../context/ContextDetailActivity";
 
 
-let Item = ({id,title,priority})=>{
+let Item = ({id,title,priority,activeTodo})=>{
     // use context detail activity
-    let {setCheckDeleteTodo,setDatasetModalDelete,setCheckAddTodo,setCheckModeEditTodo} = useContext(contextDetailActivity)
+    let {setCheckDeleteTodo,setDatasetModalDelete,setCheckAddTodo,setCheckModeEditTodo,checkUpdateTodo,setCheckUpdateTodo} = useContext(contextDetailActivity)
     
     // event set dataset id dan title modal delet
     let setDataset = (e)=>{
@@ -31,16 +31,35 @@ let Item = ({id,title,priority})=>{
     }
 
     // event check todo done
-    let todoDone = ()=>{
-        return
+    let todoDone = (e)=>{
+        let raw = {
+            is_active:(e.target.checked) ? 0 : 1
+        };
+
+        var requestOptions = {
+        method: 'PATCH',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(raw),
+        redirect: 'follow'
+        };
+
+        fetch(`https://todo.api.devcode.gethired.id/todo-items/${e.target.dataset.checkboxTodo}`, requestOptions)
+        .then(response => response.status)
+        .then(result => '')
+        .catch(error => console.log('error', error))
+        .finally(()=>{
+            return (!checkUpdateTodo) ? setCheckUpdateTodo(true) : setCheckUpdateTodo(false)
+        })
     }
 
     
     return (
         <div className="todo-item" data-cy="todo-item">
-                <input type="checkbox" className="todo-item-checkbox" data-cy="todo-item-checkbox" data-checkbox-todo={id} />
+                <input type="checkbox" onClick={todoDone} className="todo-item-checkbox" data-cy="todo-item-checkbox" defaultChecked={(!activeTodo) ? true : false} data-checkbox-todo={id} />
                 <div className="todo-item-priority-indicator" data-icon-todo={priority} data-cy="todo-item-priority-indicator"></div>
-                <h3 className="todo-item-title" data-cy="todo-item-title">{title}</h3>
+                <h3 className={`todo-item-title ${(!activeTodo) && 'todo-done'}`} data-cy="todo-item-title">{title}</h3>
                     <i className="bi bi-pencil todo-item-edit-button" data-cy="todo-item-edit-button" onClick={modeEditTodo} data-edit-id={id} data-edit-title={title} data-edit-priority={priority}></i>
                 
                 <div className="todo-item-delete-button" data-cy="todo-item-delete-button">
@@ -59,7 +78,7 @@ const TodoItem = () =>{
         <section className="todolist-container">
             {
                 todoItem.map(e =>{
-                    return <Item key={e.id} id={e.id} title={e.title} priority={e.priority}/>
+                    return <Item key={e.id} id={e.id} title={e.title} priority={e.priority} activeTodo={e.is_active}/>
                 })
             }
         </section>

@@ -618,6 +618,10 @@ div[data-icon-todo="very-low"]{
             margin: 0;
             font-size: 1em;
         }
+        .todo-done{
+            text-decoration: line-through;
+            color: #777777;
+        }
 
         // todo-item-edit-button
         .todo-item-edit-button{

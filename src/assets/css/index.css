@@ -526,6 +526,10 @@ div[data-icon-todo=very-low] {
   margin: 0;
   font-size: 1em;
 }
+.todolist-container .todo-item .todo-done {
+  text-decoration: line-through;
+  color: #777777;
+}
 .todolist-container .todo-item .todo-item-edit-button {
   border: none;
   padding: 0;
