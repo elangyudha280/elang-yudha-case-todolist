@@ -684,8 +684,11 @@ div[data-icon-todo="very-low"]{
 
         // todo-item-delete-button
         .todo-item-delete-button{
-            flex: 1;
+                border: none;
             display: flex;
+            background: transparent;
+            justify-self: end;
+            margin-left: auto;
             justify-content: end;
 
             i{

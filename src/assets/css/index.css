@@ -582,8 +582,11 @@ div[data-icon-todo=very-low] {
   color: #777777;
 }
 .todolist-container .todo-item .todo-item-delete-button {
-  flex: 1;
+  border: none;
   display: flex;
+  background: transparent;
+  justify-self: end;
+  margin-left: auto;
   justify-content: end;
 }
 .todolist-container .todo-item .todo-item-delete-button i {
