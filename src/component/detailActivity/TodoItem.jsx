@@ -9,8 +9,8 @@ let Item = ({id,title,priority,activeTodo})=>{
     // event set dataset id dan title modal delet
     let setDataset = (e)=>{
         let data = {
-            deleteId:e.target.dataset.deleteId,
-            deleteTitle:e.target.dataset.deleteTitle
+            deleteId:id,
+            deleteTitle:title
         }
         setDatasetModalDelete(data)
         setCheckDeleteTodo(true)
@@ -19,9 +19,9 @@ let Item = ({id,title,priority,activeTodo})=>{
     // mode edit todo item
     let modeEditTodo = (e)=>{
          let dataModalEdit = {
-            editId:e.target.dataset.editId,
-            editTitle:e.target.dataset.editTitle,
-            editPriority:e.target.dataset.editPriority
+            editId:id,
+            editTitle:title,
+            editPriority:priority
         }
         setDatasetModalDelete(dataModalEdit)
         // check untuk menampilkan modal tambah todo item
