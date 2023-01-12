@@ -72,12 +72,21 @@ let Item = ({id,title,priority,activeTodo})=>{
 
 const TodoItem = () =>{
     // use context detail activity
-    let {todoItem} = useContext(contextDetailActivity);
+    let {todoItem,dataSortTodo,setDataSortTodo} = useContext(contextDetailActivity);
+    useEffect(()=>{
+        if(todoItem !== undefined){
+            setDataSortTodo(todoItem)
+        }
+    },[todoItem])
+
+    useEffect(()=>{
+        setDataSortTodo(todoItem)
+    },[dataSortTodo])
 
     return (
         <section className="todolist-container">
             {
-                todoItem.map(e =>{
+                (todoItem !== undefined) && dataSortTodo.map(e =>{
                     return <Item key={e.id} id={e.id} title={e.title} priority={e.priority} activeTodo={e.is_active}/>
                 })
             }

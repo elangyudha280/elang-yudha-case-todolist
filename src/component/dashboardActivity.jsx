@@ -35,6 +35,7 @@ const DashboardActivity = ()=>{
     // state untuk menyimpan dataset id dan title dari button delete activity
     let [datasetModalActivity,setDatasetModalActivity] = useState()
 
+
     // data state untuk di jadikan context supaya bisa digunakan oleh component lain
     let contextActivity = {
         dataApiActivity,
@@ -46,7 +47,7 @@ const DashboardActivity = ()=>{
         datasetModalActivity,
         setDatasetModalActivity,
         checkDeleteActivity,
-        setCheckDeleteActivity
+        setCheckDeleteActivity,
     }
 
     // fungsi untuk get data api activity

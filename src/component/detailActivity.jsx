@@ -57,6 +57,12 @@ const DetailActivity = () =>{
     // state untuk mengecek apakah sedang dalam mode edit todo
     let [checkModeEditTodo,setCheckModeEditTodo] = useState(false)
 
+    // state untuk menyimpan data todo sort
+    let [dataSortTodo,setDataSortTodo] = useState([])
+
+    // state untk mengecek update sort todo
+    let [checkSortTodo,setCheckSortTodo] = useState(false)
+
     // data context untuk digunakan di component lain
     let detailContext = {
         detailActivity,
@@ -74,7 +80,11 @@ const DetailActivity = () =>{
         successDelete,
         setSuccessDelete,
         checkModeEditTodo,
-        setCheckModeEditTodo
+        setCheckModeEditTodo,
+        dataSortTodo,
+        setDataSortTodo,
+        checkSortTodo,
+        setCheckSortTodo
     }
 
     // fungsi untuk get data detail activity

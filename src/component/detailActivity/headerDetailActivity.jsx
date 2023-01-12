@@ -4,6 +4,78 @@ import { useParams,Link } from "react-router-dom";
 import { contextDetailActivity } from "../../context/ContextDetailActivity";
 
 
+// component sort element
+const SortElement = ({title,classIcon,activeSort,setDropdownSorting})=>{
+
+    // use context detail activity
+    let {todoItem,setDataSortTodo,checkUpdateTodo,setCheckUpdateTodo,checkSortTodo,setCheckSortTodo} = useContext(contextDetailActivity);
+
+    // event sorting data
+    let eventSortingData =()=>{
+        if(title === 'terbaru'){
+            let sorting = todoItem.sort((a,b)=>{
+                return b.id - a.id
+            }) 
+            setDataSortTodo(sorting)
+            setDropdownSorting(false)
+            
+            return (!checkSortTodo) ? setCheckSortTodo(true) : setCheckSortTodo(false)
+        }else if(title === 'terlama'){
+            let sorting = todoItem.sort((a,b)=>{
+                return a.id - b.id
+            }) 
+            setDataSortTodo(sorting)
+            setDropdownSorting(false)
+            
+            return (!checkSortTodo) ? setCheckSortTodo(true) : setCheckSortTodo(false)
+        }else if(title === 'A-Z'){
+            let sorting = todoItem.sort((a,b)=>{
+                const titleA = a.title.toLowerCase();
+                const titleB = b.title.toLowerCase(); 
+              if (titleA < titleB) {
+                  return -1;
+              }
+              return
+          }) 
+          setDataSortTodo(sorting)
+          setDropdownSorting(false)
+
+          return (!checkSortTodo) ? setCheckSortTodo(true) : setCheckSortTodo(false)
+        }else if(title === 'Z-A'){
+              let sorting = todoItem.sort((a,b)=>{
+                      const titleA = a.title.toLowerCase(); 
+                     const titleB = b.title.toLowerCase(); 
+                    if (titleA > titleB) {
+                        return -1;
+                    }
+                    return
+                }) 
+                setDataSortTodo(sorting)
+                setDropdownSorting(false)
+
+                return (!checkSortTodo) ? setCheckSortTodo(true) : setCheckSortTodo(false)
+        }else{
+            let sorting = todoItem.sort((a,b)=>{
+                return   b.is_active - a.is_active
+            }) 
+            setDataSortTodo(sorting)
+            setDropdownSorting(false)
+
+            return (!checkSortTodo) ? setCheckSortTodo(true) : setCheckSortTodo(false)
+        }
+    }
+    return(
+        <>
+            <button className="sort-selection" data-cy="sort-selection" onClick={eventSortingData}>
+                        <i className={`${classIcon} icon-sort`}></i>
+                        <span className="title-sort">{title}</span>
+                        <i className="bi bi-check-lg icon-check-sort"></i>
+            </button>
+        </>
+    )
+}
+
+
 const HeaderDetailActivity = ()=>{
     let {id} = useParams()
     // data context dari component detailActivity
@@ -20,6 +92,35 @@ const HeaderDetailActivity = ()=>{
 
     // state untuk mengecheck dropdown sorting
     let [dropdownSorting,setDropdownSorting] = useState(false)
+
+    // state untk menyimpan data sortin item
+    let [dataSortingItem,setDataSortingItem]= useState([
+        {
+            titleSort:'terbaru',
+            classIcon:'bi bi-sort-up',
+            activeSort:true
+        },
+        {
+            titleSort:'terlama',
+            classIcon:'bi bi-sort-down',
+            activeSort:false
+        },
+        {
+            titleSort:'A-Z',
+            classIcon:'bi bi-sort-alpha-up',
+            activeSort:false
+        },
+        {
+            titleSort:'Z-A',
+            classIcon:'bi-sort-alpha-up-alt',
+            activeSort:false
+        },
+        {
+            titleSort:'belum-selesai',
+            classIcon:'bi bi-filter',
+            activeSort:false
+        }
+    ])
 
     // function untuk det data detail title
     useEffect(()=>{
@@ -62,6 +163,11 @@ const HeaderDetailActivity = ()=>{
         setDetailTitle(e.target.value)
     }
 
+    // event sorting terbaru
+    let sortinTerbaru = () =>{
+
+    }
+
     return (
         <header className="header-detail-activity" data-cy="header-detail-activity">
             <Link to="/" className="todo-back-button" data-cy="todo-back-button">
@@ -101,31 +207,11 @@ const HeaderDetailActivity = ()=>{
                     // cek untuk menampilkan dropdown sorting
                     (dropdownSorting) &&
                     <div className="devide-sorting">
-                    <button className="sort-selection" data-cy="sort-selection">
-                    <i className="bi bi-sort-down icon-sort"></i>
-                    <span className="title-sort">terbaru</span>
-                    <i className="bi bi-check-lg icon-check-sort"></i>
-                    </button>
-                    <button className="sort-selection" data-cy="sort-selection">
-                    <i className="bi bi-sort-up icon-sort"></i>
-                    <span className="title-sort">terlama</span>
-                    <i className="bi bi-check-lg icon-check-sort"></i>
-                    </button>
-                    <button className="sort-selection" data-cy="sort-selection">
-                    <i className="bi bi-sort-alpha-up icon-sort"></i>
-                    <span className="title-sort">A-Z</span>
-                    <i className="bi bi-check-lg icon-check-sort"></i>
-                    </button>
-                    <button className="sort-selection" data-cy="sort-selection">
-                    <i className="bi bi-sort-alpha-up-alt icon-sort"></i>
-                    <span className="title-sort">Z-A</span>
-                    <i className="bi bi-check-lg icon-check-sort"></i>
-                    </button>
-                    <button className="sort-selection" data-cy="sort-selection">
-                    <i className="bi bi-filter icon-sort"></i>
-                    <span className="title-sort">belum selesai</span>
-                    <i className="bi bi-check-lg icon-check-sort"></i>
-                    </button>
+                        {
+                            dataSortingItem.map(e =>{
+                                return <SortElement key={e.titleSort} title={e.titleSort} classIcon={e.classIcon} activeSort={e.activeSort} setDropdownSorting={setDropdownSorting}/>
+                            })
+                        }
                     </div>
                 }
             </div>
