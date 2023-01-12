@@ -130,8 +130,10 @@ const HeaderDetailActivity = ()=>{
 
     // event mode edit
     let modeEdit = (e)=>{
-        (!modeEditTitle) ? setModeEditTitle(true) : setModeEditTitle(false)
         e.preventDefault()
+        if(e.target.classList.contains('input-edit-title') || e.target.classList.contains('todo-title') || e.target.classList.contains('bi-pencil') ){
+        (!modeEditTitle) ? setModeEditTitle(true) : setModeEditTitle(false)
+        }
         if(modeEditTitle){
             var raw = {
                 title:inputTitle
@@ -169,20 +171,18 @@ const HeaderDetailActivity = ()=>{
     }
 
     return (
-        <header className="header-detail-activity" data-cy="header-detail-activity">
+        <header className="header-detail-activity" data-cy="header-detail-activity" onClick={modeEdit}>
             <Link to="/" className="todo-back-button" data-cy="todo-back-button">
                 <i className="bi bi-chevron-left"></i>
             </Link>
-            <form action="#" onSubmit={modeEdit}>
+            <form action="#" >
                 <div className="container-edit-title" data-cy="container-edit-title">
                     {
                         (modeEditTitle) 
                         ?
                         <input type="text" className="input-edit-title" onInput={editInputTitle} data-cy="input-edit-title" defaultValue={inputTitle} autoFocus/>
                         :
-                        <h1 className="todo-title" data-cy='todo-title' onClick={()=>{
-                            (!modeEditTitle) ? setModeEditTitle(true) : setModeEditTitle(false)
-                        }}>{detailTitle}</h1> 
+                        <h1 className="todo-title" data-cy='todo-title'>{detailTitle}</h1> 
                     }
                     <button className="todo-title-edit-button" type="submit" data-cy="todo-title-edit-button">
                         <i className="bi bi-pencil"></i>
