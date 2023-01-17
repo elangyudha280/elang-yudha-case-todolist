@@ -148,9 +148,10 @@ const HeaderDetailActivity = ()=>{
             };
 
             fetch(`https://todo.api.devcode.gethired.id/activity-groups/${id}`, requestOptions)
-            .then(response => response.text())
+            .then(response => response.status)
             .then(result => '')
-            .catch(error => '');
+            .catch(error => '')
+            .finally(()=>{setModeEditTitle(false)})
         }
     }
 
@@ -165,17 +166,13 @@ const HeaderDetailActivity = ()=>{
         setDetailTitle(e.target.value)
     }
 
-    // event sorting terbaru
-    let sortinTerbaru = () =>{
-
-    }
 
     return (
         <header className="header-detail-activity" data-cy="header-detail-activity" onClick={modeEdit}>
             <Link to="/" className="todo-back-button" data-cy="todo-back-button">
                 <i className="bi bi-chevron-left"></i>
             </Link>
-            <form action="#" >
+            <form action="#">
                 <div className="container-edit-title" data-cy="container-edit-title">
                     {
                         (modeEditTitle) 
